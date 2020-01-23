@@ -1,0 +1,17 @@
+
+
+ MODIFYHEADER    a clone of FTOOLS' fmodhead. It modifies the FITS header
+		keywords using the values in a template file.
+
+ Usage:
+	modifyheader infile=inputfile header=#header templ=template
+
+	#header=0 for the primary array.
+
+	if template is set to '-' , keyword values are read from the
+standard input. For example, modify the EXPOSURE keyword "on the fly":
+
+%modifyheader infile=img header=0 templ=-
+EXPOSURE=1000.0 / sec.
+^D
+

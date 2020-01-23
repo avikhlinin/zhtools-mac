@@ -1,0 +1,6 @@
+
+makespec	- makes ROSAT spectrum from Snowden output
+
+fitspha		- converts ASCII spectrum into the PHA fits file 
+		  (readable by xspec)
+

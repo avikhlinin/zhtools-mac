@@ -1,0 +1,14 @@
+---
+
+
+
+SAOIMAGE2REG  - translate the SAOimage region file to the region descriptor
+
+-----
+
+
+Usage:
+~~~~~~
+saoimage2reg saoimagereg regfile value=value
+
+---------------

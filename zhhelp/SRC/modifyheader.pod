@@ -1,0 +1,49 @@
+=head1 NAME
+
+B<modifyheader> - edit FITS header keywords
+
+=head1 SYNOPSIS
+
+B<modifyheader> infile=I<input.fits> [header=I<#header>] templ=I<templfile>
+
+=head1 DESCRIPTION
+
+This program is a clone of FTOOL B<fmodhead>. It modifies the FITS header
+keywords using the values in a template file.
+
+=over 4
+
+=item infile=I<input.fits>
+
+FITS file to modify. Extended name sytax can be used to point to a
+particular extension. Otherwise, use header=I<#header> parameter to set the
+extension number
+
+=item header=I<#header>
+
+Edit the header of extension I<#header> in I<input.fits>. #header=0 for the
+primary array.
+
+=item templ=I<templfile>
+
+Template file. If I<templfile>=-, editing instructions will be read from
+standard input.
+
+=back
+
+
+=head1 Template file format
+
+See B<fhelp fmodhead> for a detailed description of the template file
+format. Here is a self-explanatory example:
+
+ EXPOSURE=1000.0 /  change the value of exposure keyword
+
+=head1 EXAMPLES
+
+Modify the EXPOSURE keyword in the FITS file "I<img>":
+
+ modifyheader infile=img header=0 templ=-
+ EXPOSURE=1000.0 / sec.
+ ^D
+

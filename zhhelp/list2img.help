@@ -1,0 +1,27 @@
+---
+
+
+
+LIST2IMG  - convert photon list to an image
+
+-----
+
+
+Usage:
+~~~~~~
+list2img list=phot.list out=out.img refimg=reference.img [or nx=nx ny=ny] \
+                        [values=yes]
+
+
+	it is assumed that the bottom-left corner of the image corresponds to
+	pixel coordinates (1,1)
+
+	reference image is used to determine the size of the output
+	image. They can also be set explicitly by nx=nx and ny=ny switches.
+
+        if values=yes, the list must be in the format
+           x y value
+        and values will be binned up to form an image
+
+---------------
+

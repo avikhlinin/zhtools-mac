@@ -1,0 +1,43 @@
+
+
+ad2rad		- alpha, delta (h m s d am as) -> alpha,delta (radians)
+addimages	- coadd images in the sky coordinates
+contmap		- draw a contour map
+convolve.	- CONVOLUTION package; see "imsmo" for just smoothing the img
+copyheader	- copy a header from one FITS image to the other
+dataio:		- a couple of image data manipulation tasks
+   gpart	- extract a rectangular part of a fits image
+   wfits	- convert unformatted fortran file to fits
+   rfits	- convert fits to unformatted fortran write
+detect.		- source detection package
+dss.		- manipulation with the Digitized Sky Survey data
+imarith		- simple arith. on two images. See also "imcalc" and "imcarith"
+imblock		- block and reblock the image
+imcalc 		- arbitrary image calculus
+imcarith	- image and constant arithmetics
+imexam		- mean, min, max many other characteristics of the image
+imfit		- fit an image with simple analytic model; NOT READY
+immagnify       - image magnification (shell driver to IRAF's imlintran)
+improj		- print out the projection of the 2-d image on an axis
+imsmo 		- fast and somewhat crude smoothing of the image with Gaussian
+island		- find distinct islands of 1s in the see of 0s
+list2img	- convert photon list to an image
+mkcond		- make a "CONDITION" image
+mkedge		- set image to a value outside the given radius
+mkreg		- make a mask image from the ascii region descriptor
+mkprof		- radial profile of the source
+overlay		- NOT READY; images.dss/dssoverlay will help!
+ph2w		- "Physical -> world" == "pixels -> sky" coordinates
+prof2img	- convert profile back to image
+putlab		- NOT READY
+rad2ad		- radians -> h m s d am as
+rosat.		- ROSAT-related tasks
+saoimage2reg	- translate SAOimage region file to the region descriptor
+saoimtool       - OBSOLETE
+savecont	- save contours for further use by images.dss/dssoverlay
+setval		- set value in the region
+simulate.	- create artificial data
+snr		- OBSOLETE
+stackimages	
+w2ph		- "World -> Physical" == "sky -> pixels"
+wvdecomp	- wavelet decomposition routine

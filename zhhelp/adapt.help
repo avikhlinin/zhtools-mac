@@ -1,0 +1,22 @@
+  ---
+  ADAPT  - smooth photom image with a circular top hat filter of adaptive
+         size  in  order  to achieve a minimal number of counts under the filter
+
+  -----
+  
+  
+  Usage:
+  ------
+  adapt image [show=yes] [out=outfile] [ncnt=ncounts] [rsmomax=rmax]
+	[rmax=rmax] \
+	[kernelout=kernel.out.fits] [mask=mask] [withinmask=yes]
+  		
+  withinmask=yes means that only the data within mask will be used for
+  convolution
+
+  if this parameter is unset, the convolution is performed within the mask,
+  but the data outside the mask are also used.
+
+  ---
+
+ 

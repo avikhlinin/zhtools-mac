@@ -1,0 +1,29 @@
+=head1 NAME
+
+gtiexp - prints out exposure associated with the GTI file
+
+=head1 SYNOPSIS
+
+B<gtiexp> I<gtifile[ext]> I<[stop=STOPNAME> I<[start=STARTNAME>
+
+=head1 DESCRIPTION
+
+B<gtiexp> prints out the exposure associated with the GTI file. GTI can be
+in both FITS and plain text formats. If the GTI file is FITS, the user is
+supposed to point to a correct extension in this file (e.g. gti.fits[gti] or 
+evt.fits+2). In the fits file, B<gtiexp> looks for colums I<START> and
+I<STOP>, but these names can be changed using I<stop=> and I<start=>
+parameters. 
+
+If the program does not recogise the GTI file as FITS, it attempts to read
+it as plain text. These two formats are supported:
+
+ 100000.1 1000001.0
+ 100002.0 1000020.0
+
+and
+
+ 1 100000.1 1000001.0
+ 2 100002.0 1000020.0
+
+

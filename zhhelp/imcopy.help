@@ -1,0 +1,11 @@
+  IMCOPY	copy one FITS image to another
+
+  Usage:
+	imcopy i=input o=output
+
+  Note: this program is inferior to `fitscopy' distributed with FITSIO
+
+  Examples:
+	a) extract image region
+           imcopy i=img1\[1:25,26:30\] o=img2
+

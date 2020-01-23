@@ -1,0 +1,7 @@
+box     x y wx wy [angle] valye   or    b x y wx wy [angle] value
+circle  x y r value               or    c x y r value
+ellipse x y rx ry angle value     or    e x y rx ry angle value
+point   x y value                 or    p x y value
+annulus x y r1 r2 value		  or    a x y r1 r2 value
+sector  x y r1 r2 angl1 angl2 val or    s x y r1 r2 angle1 angle2 value
+

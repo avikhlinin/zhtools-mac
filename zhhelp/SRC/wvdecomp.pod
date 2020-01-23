@@ -1,0 +1,200 @@
+=head1 NAME
+
+B<wvdecomp> - wavelet decomposition
+
+=head1 SYNOPSIS
+
+B<wvdecomp> I<image> I<outkey> [kernel=gauss/atrous] [threshold=t]
+[thresholdmin=tmin] [iter=niter] [scalemin=smin] [scalemax=smax]
+[stat=gauss/poisson] [errimg=errorimage] [bg=bgimage] [exp=expimage]
+[detectnegative=yes] [considershape=yes/no] [savenoise=yes] [save=yes]
+[restore=restorefile] [tmode=nfalse] [tminmode=sig]
+
+=head1 NEWS (for version 2.0)
+
+A new method of computing thresholds for Poisson data is implemented.
+With B<tmode>=I<nfalse>, you specify the B<threshold> as the desired number
+of false detections in the 512x512 field and B<thresholdmin> as the fraction
+of B<threshold>. It is often desirable that the minimum threshold is set the 
+old way, in "sigmas"; for that, use B<tminmode>=I<sig>.
+
+I<NOTE> that the I<nfalse> mode is currently implemented only for
+B<kernel>=I<gauss>.
+
+=head1 OPTIONS
+
+=over 4
+
+=item I<image>
+
+input FITS image
+
+
+=item I<outkey>
+
+keyword for output file names. 
+
+
+=item B<kernel>=I<gauss/atrous>
+
+set the wavelet kernel; see wvdecomp.ps.gz in $ZHTOOLS/HELP/Doc directory
+for definition of the kernels. kernel=I<atrous> by default.
+
+=item B<smin>=I<smin>, B<scalemin>=I<smin>
+
+Set the scale at which the decomposition  process starts. Default value is 1.
+
+=item B<smax>=I<smax>, B<scalemax>=I<smax>
+
+Set the scale at which the decomposition stops. Default is I<scalemax=6>.
+  
+wvdecomp writes a set of output images, I<outkey> and I<outkey>.i, where
+I<smin> <= i <= I<smax>+1.  I<outkey>.i contains flux detected on scale
+C<i>. I<outkey> equals sum of I<outkey>.i for i=smin,smax.
+I<outkey>.[smax+1] contains is the residual image smoothed with the kernel
+at the largest scale.
+
+
+=item B<t>=I<t>, B<threshold>=I<t>
+
+Set the detection threshold, in sigma. Default is B<threshold>=3. However,
+this is too low for most applications; e.g., there will be many false
+detections in a 512x512 image with B<t>=3; B<threshold>=4.5-5 is a
+reasonable choice in most cases. It is possible to set individual detection
+threshold for each scale.  For that, use B<threshold>=I<ta,tb,...> syntax,
+where I<ta> is the threshold at I<smin> and so on.
+
+=item B<tmin>=I<tmin>, B<thresholdmin>=I<tmin>
+
+This parameter, the filtering threshold, is explained in
+$ZHTOOLS/HELP/Doc/wvdecomp.ps.gz. Its default value equals the detection
+threshold at the given scale; B<tmin>=2.5 or more is a good choice. It is
+possible to set individual tmin's for all scales with the same syntax as for
+the threshold parameter.
+
+=item B<tmode>=I<nfalse>
+
+This option specifies that detection thresholds are set as a number of false 
+detections in the 512x512 field. In this case, B<tmin> is specified as a
+fraction of the threshold. If you want to specify B<tmin> in terms of
+"sigmas", use the B<tminmode>=I<sig> option.
+
+=item B<tminmode>=I<sig>
+
+This option specifies that the minimum thresholds are in "sigmas" even if
+B<tmode>=I<nfalse>
+
+
+=item B<iter>=I<niter>
+
+Set the number of iterations at each scale. The decomposition process is
+repeated at the same scale until no new structures are detected or until
+I<niter> iterations are made. This parameter defaults to 1. A reasonable
+choice is B<iter>=5.
+
+=item B<stat>=I<poisson/gauss>
+
+Set the statistics of the image noise. This parameter defaults to
+I<poisson>; however, if I<errimg> is supplied, B<stat>=I<gauss> is the
+default.
+
+=item B<errimg>=I<errorimage>
+
+You can supply the image containing standard deviations in the data in each
+pixel. If this parameter is not set, the noise will be estimated from the
+data assuming either Poisson or Gaussian statistics (the statistics used can
+be controlled by the I<stat> parameter).
+
+=item B<bg>=I<bgimage>
+
+Sometimes it is practical to subtract the known structures from the data
+before the wavelet decomposition. For example, in the case of the ROSAT PSPC
+data, one may want to subtract the normalized exposure map to get rid of
+spurious detections around the PSPC window support structure. If the image
+noise is Gaussian, this ``background'' can be subtracted in
+advance. However, if it is desirable to preserve Poisson statistics, the
+subtraction must be done internally. This is the purpose of the B<bg>
+parameter.
+
+=item B<exp>=I<expimage>
+
+Similar to B<bg>, but uses the exposure map to correct the data. Image is
+divided by the exposure map before convolution with the wavelet kernel, and
+multiplied back by exposure upon the convolution. This preserves Poisson
+statistics, but eliminates false detections in the region of strongly
+varying exposure.
+
+=item B<detectnegative>=yes
+
+detect both positive and negative features. default is no
+
+=item B<considershape>=yes/no
+
+If B<considershape>=I<yes> wvdecomp will try to avoid detection of ring-like
+structures. This is desirable if if one wants to exclude negative rings
+around bright sources when B<detectnegative> is on. default is no but
+switches to yes if B<detectnegative>=yes
+
+=back
+
+=head1 DESCRIPTION
+
+The wavelet decomposition algorithm is described in Vikhlinin et al. 1998,
+ApJ, 502, 558. Additional information can be found in
+$ZHTOOLS/HELP/Doc/wvdecomp.ps.gz and references therein.
+
+=head1 MEMORY REQUIREMENTS
+
+wvdecomp memory usage in Mb can be estimated as 0.3+7*nx*ny/(512**2), where
+(nx,ny) is the size of the input image.
+
+To find connected detected structures, wvdecomp uses the so called flood
+fill algorithm. It usues repeated recursive calls of a C function. If
+B<thersholdmin> is set too low (or, e.g., wrong type of noise statistics is
+specified) the connected structures often have complicate shapes and
+fill large areas. This requires too many calls of the flood fill
+algorithm and wvdecomp crashes with segmentation fault. If this happens
+but you feel that detections thresholds are set correctly, try
+increasing the stack size (see $ZHTOOLS/G77.README for possible ways of
+doing this).
+
+=head1 EXAMPLES
+
+=head2 1) WVDECOMP as a background map tool
+
+The best approximation to the background is the smoothed data from which all
+detectable sources were subtracted. This is exactly what the largest scale
+of the wavelet decomposition contains. So, after we run something like
+
+ wvdecomp image bg scalemin=1 scalemax=6 threshold=3 \
+              thresholdmin=2  iter=10
+
+the image I<bg.7> contains a good approximation to the background in
+I<image>. Note that in this example, thresholds were set low, because we
+were interested not in the confident source detection but rather in a
+complete source subtraction.
+
+=head2 2) Subtraction of point sources to study large structures
+
+This is similar to the previous example, with two exceptions. First, we
+should stop the wavelet decomposition at small scale, because we would like
+to subtract only point sources. Second, we may not want to smooth the
+resulting image. 
+
+Suppose, scale 3 is already larger than the point source, but still much
+smaller than the structures of interest.
+
+ wvdecomp image point scalemin=1 scalemax=3 threshold=3 \
+   thresholdmin=2 iter=10
+
+creates the image of point sources, I<point>. Subtraction of I<point> from
+the I<image> produces the desired map.
+
+=head1 BUGS
+
+Image header keywords are not copied from the input image. Use B<copyheader> 
+of B<cphead> from FTOOLS to update headers of output images, if necessary.
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>

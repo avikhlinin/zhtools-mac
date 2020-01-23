@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+while (<>) {
+  chomp;
+  if (/^fk5;/ || /^fk4;/ || /^image;/ || /^physical;/) {
+    /(.*);(.*)/; ($system,$reg) = ($1,$2);
+    $reg =~ /(.*)\((.*)\)(.*)/;
+    ($shape,$args,$rest) = ($1,$2,$3);
+    if ($shape eq "elliptannulus") {
+      (@arg) = split(',',$args);
+      pop @arg;
+      $args=join(',',@arg);
+      $reg="ellipse($args)$rest";
+    }
+#
+    $_="$system;$reg";
+  }
+  print $_,"\n";
+}
+

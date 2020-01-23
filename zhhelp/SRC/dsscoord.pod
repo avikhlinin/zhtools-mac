@@ -1,0 +1,41 @@
+=head1 NAME
+
+B<dsscoord> - convert Digitized Sky Survey plate pixels to sky coordinates
+
+=head1 SYNOPSIS
+
+B<dsscoord> I<dss.fits> [I<coord.list>]
+
+=head1 DESCRIPTION
+
+Sky coordinates (in radians and in h:m:s d:m:s) are printed to standard
+output.
+
+=over 4
+
+=item I<dss.fits>
+
+Name of the image with the plate solution keywords in the header
+
+=item I<coord.list>
+
+Optional coordinate list file. If not set, pixel coordinates will be read
+from standard input.
+
+=back
+
+=head1 SEE ALSO
+
+B<pix2sky>, B<sky2dss>
+
+=head1 EXAMPLES
+
+To print sky coordinates in degrees, use
+
+ dsscoord ... | awk '{print $3*57.2958, $4*57.2958}'
+
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>

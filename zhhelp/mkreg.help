@@ -1,0 +1,44 @@
+---
+
+
+
+MKREG  - make FITS region image from a region descriptor
+
+-----
+
+
+Usage:
+~~~~~~
+mkreg refimg=image (or nx=nx ny=ny) out=outimage reg=region
+
+
+Examples:
+~~~~~~~~ 
+mkreg nx=128 ny=128 reg="c 90 90 10 5"  will create an image which is equal
+					to zero everywhere except for the 
+					circle of radius 10 pixels centered 
+					at (90,90); the image values inside
+					the circle will be 5.
+
+
+to read in the file "reg.reg" with the region descriptors use:
+
+mkreg nx=128 ny=128 reg=file:reg.reg
+
+Note: mkreg recognizes SAOimage (and SAOtng) region descriptors, but it is
+assumed that pixel values for SAOimage regions are 1; you can alter this by
+appending the desired pixel value, e.g.: 
+# Wed Aug 9 14:39:37 1995 # shape x, y, [x dimension, y dimension], [angle]
+CIRCLE(145.3,383.4,27.46)  5
+                           ~~~
+
+See also:
+~~~~~~~~
+
+saoimage2reg - translation of the SAOimage region file to the region
+		descriptor 
+
+regions	     - the list of possible image descriptors
+
+---------------
+

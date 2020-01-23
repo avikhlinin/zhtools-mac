@@ -1,0 +1,26 @@
+
+  GETPAR	a utility to read command line arguments in shell scripts
+
+ Almost all zhtools accept command line arguments in the form name=value;
+parameters can also be stored to a parameter file which is used as @parfile
+in the command line (see zhhelp parameters for details).
+
+ getpar can be used to extract the parameter values in the shell
+scripts. Here are several example
+
+#!/bin/csh -f
+set value = `getpar test $*`
+echo Parameter test is equal to $value
+
+
+#!/bin/csh -f
+set pars = `getpar test,doit $*`
+set value_t = $par[1]
+set value+d = $par[2]
+echo Parameter test is equal to $value_t
+if ( $value_d == undefined ) then
+	echo Parameter doit is undefined
+else
+	echo Parameter doit is equal to $value_d
+endif
+

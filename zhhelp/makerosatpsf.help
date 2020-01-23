@@ -1,0 +1,24 @@
+   ---
+   
+   
+   
+   MAKEROSATPSF  - produce the PSPC psf image
+   -----
+   
+   
+   Usage:
+   ------
+   makerosatpsf pspc ROSATimage outputimage [other args]
+	-offaxis arcmin 
+          or 
+        -point i0 j0               (in this case
+                                   center of the image is considered as the
+                                   FOV center and the off-axis distance is 
+                                   calculated using dpix value or CRPIX 
+                                   keywords)
+
+        -dpix arcsec         (if there is no CRPIX keywords in the FITS image)
+
+
+        -egrid e1 w1 e2 w2 ....
+	   ---

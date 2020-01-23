@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if test "$#" != 3
+then
+	echo "Usage: saoimage2reg saoimagefile regfile value=value"
+	exit 1
+fi
+saoimage=$1
+reg=$2
+
+value=`$ZHTOOLS/bin/getpar value $*`
+if test "$value" = "ndefined"
+then
+	echo "Usage: saoimage2reg saoimagefile regfile value=value"
+	exit 1
+fi
+
+rm -f $reg
+(grep -v "#" $saoimage | dd conv=lcase | sed -n s/"("/" "/gp |sed -n s/")"/" "/gp  |sed -n s/","/" "/gp | sed s/"+"/" "/gp  | nawk -v val=$value '{print $0,val}' > $reg) 2> /dev/null
+

@@ -1,0 +1,8 @@
+
+ SCATTER	- scatter the data using Gaussian errors
+
+ Usage:
+	scatter img=datafile out=outfile err=errors
+
+	"errors" can be either a fits image or a constant, specified such as
+	err=value:1.1

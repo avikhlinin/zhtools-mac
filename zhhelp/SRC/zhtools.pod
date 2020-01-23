@@ -1,0 +1,381 @@
+=head1 NAME
+
+I<ZHTOOLS> - programs for X-ray astronomy
+
+=head1 DESCRIPTION
+
+I<ZHTOOLS> is a collection of stand-alone UNIX programs useful for reduction of
+astronomical images in FITS format and of X-ray data in general.
+
+
+=head1 GENERAL ASTRONOMY TASKS
+
+=over 4
+
+=item I<ad2rad>
+
+h:m:s d:m:s -> radians
+
+=item I<angle2size>
+
+angular to proper size conversion in different cosmologies
+
+=item I<size2angle>
+
+proper to angular size conversion in different cosmologies
+
+=item I<distance> 
+
+angular distance between two points on the sky
+
+=item I<rad2ad>
+
+radians -> h:m:s d:m:s
+
+=back
+
+
+=head1 FITS DATA MANIPULATIONS
+
+=over 4
+
+=item I<addcomm>
+
+add comment records to FITS header
+
+
+=item I<addhist>
+
+adds history records to FITS header
+
+
+=item I<chimtype>
+
+change data type (e.g. real->integer) in an image. Data may be optionally
+rescaled.
+
+=item I<copyheader>
+
+copy header keywords from one FITS file to another (see also FTOOL
+I<cphead>).
+
+=item I<copywcs>
+
+copy just the World Coordinate System keywords from the header of one FITS
+image to others.
+
+=item I<fcolappend>
+
+append a constant column to a FITS table
+
+=item I<fitsparsename>
+
+Prints components of the extended FITS file name.
+
+=item I<fitspha>
+
+convert ASCII files to FITS PHA (see also FTOOL  I<ascii2pha>).
+
+
+=item I<gtiexp>
+
+prints out the total exposure of the GTI file
+
+=item I<gtifits>
+
+converts ASCII GTI files to FITS format
+
+
+=item I<iffits>
+
+prints 1 if its argument is a fits file, 0 otherwise
+
+
+=item I<listfits>
+
+print out FITS header keywords. See also  I<listhead> supplied with FITSIO.
+
+
+=item I<modifyheader>
+
+modifies FITS header. This tools is derived from FTOOL fmodhead but
+incorporates two important improvements
+
+
+=item I<printkey>
+
+prints a FITS keyword value
+
+
+=item I<rfits>
+
+convert fits image to unformatted fortran file
+
+
+=item I<wfits>
+
+convert unformatted fortran file to fits
+
+=back
+
+
+=head1 IMAGES
+
+=over 4
+
+=item I<adapt>
+
+smooth an image with circular top hat filter of adaptive size
+
+
+=item I<addimages>
+
+coadd images in the sky coordinates
+
+
+=item I<atrous>
+
+convolve an image with `a trous wavelet
+
+
+=item I<contmap>
+
+draw a contour map
+
+
+=item I<createimg>
+
+make a constant value image
+
+
+=item I<dsscoord>
+
+DSS pixels to sky coordinates
+
+
+=item I<dssdetect>
+
+detect sources in DSS plates
+
+
+=item I<dssoverlay>
+
+overlay contours on DSS (or any other) image
+
+
+=item I<findpeak>
+ 
+find local maxima in an image
+
+
+=item I<gaussimg>
+
+simulate a Gaussian image
+
+
+=item I<imarith>
+
+simple arith. on two images. See also I<imcalc> and I<imcarith>
+
+
+=item I<imblock>
+
+block and reblock the image
+
+
+=item I<imcalc>
+
+arbitrary image calculus; for simple arithmetic, see I<imarith> and
+I<imcarith>
+
+
+=item I<imcarith>
+
+constant value arithmetics with an image. Also sqrt, min, max, abs
+
+
+=item I<imcopy>
+
+provided for image manupulation using FITSIO's extended name syntax
+
+
+=item I<imdiff>
+
+reports pixel-by-pixel difference of two images
+
+
+=item I<imexam>
+
+report many image statistics
+
+=item I<img2list>
+
+convert integer image to pixel list
+
+
+=item I<improj>
+
+projection of a 2-d image along a direction
+
+
+=item I<imsmo>
+
+smooth image with a Gaussian filter
+
+
+=item I<island>
+
+find connected domains in an image
+
+
+=item I<kingimg>
+
+simulate a beta-model image
+
+
+=item I<list2img>
+
+convert ASCII `photon list' to an image
+
+
+=item I<makeimg> 
+
+make an image from FITS events files. Probably made obsolete by I<fitscopy>
+
+
+=item I<mexhat>
+
+convolve an image with the Mexican Hat wavelet
+
+
+=item I<mkcond>
+
+logical operation on an image
+
+
+=item I<mkedge>
+
+set image to a value outside the given radius
+
+
+=item I<mkprof>
+
+calculate radial surface brightness profile
+
+
+=item I<mkreg>
+
+make a mask image from the ASCII region descriptor
+
+
+=item I<pix2sky>
+
+pixels -> sky coordinates
+
+
+=item I<poisson>
+
+simulate Poisson scatter
+
+
+=item I<prof2img>
+
+convert radial surface brightness profile to a 2d image
+
+
+=item I<saoimage2reg>
+
+translate SAOimage region file to the zhtools region descriptor; this tool
+is almost obsolete because zhtools now understand SAOimage reg.files (see
+I<regions>)
+
+
+=item I<savecont>
+
+save contours for further use by I<dssoverlay>
+
+
+=item I<scatter>
+
+add Gaussian scatter to an image
+
+
+=item I<select>
+
+apply temp, energy and spatial selection to a FITS events file; probably
+made obsolete by I<fitscopy>
+
+
+=item I<setval>
+
+set image value in a region
+
+
+=item I<sky2pix>
+
+sky coordinates -> pixels
+
+
+=item I<sky2dss> 
+
+sky coordinates -> DSS pixels
+
+
+=item I<stackimages>
+
+adds several images without shift
+
+
+=item I<transreg>
+
+translate region from one WCS to another
+
+
+=item I<wvdecomp>
+
+wavelet decomposition
+
+=back
+
+
+=head1 ROSAT-SPECIFIC
+
+=over 4
+
+=item I<extrrosatspec>
+
+extract spectrum in 34 ROSAT channels
+
+
+=item I<makerosatpsf>
+
+make ROSAT PSPC PSF image for given source positions
+
+
+=item I<makesnowdenspec>
+
+make spectrum from Snowden's images
+
+
+=item I<rosatpsffwhm>
+
+return FWHM of the PSPC PSF
+
+=back
+
+=head1 MISC
+
+=over 4
+
+=item I<getpar>
+
+a tool to read command line arguments in shell scripts
+
+=back
+
+
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>

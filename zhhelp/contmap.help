@@ -1,0 +1,38 @@
+---
+
+
+
+Usage:
+
+contmap image -lev z1 z2 z3 ... ZN
+	[-dev DEV] [-nogrid] [-sky] [-name name] [-title title]
+	[short=yes] [-smo sigma or -smooth sigma]
+	
+-dev DEV            - DEV is any valid PGPLOT device, def: /XTERM; if you
+			want to save the plot to a Postscript file, 
+			use -dev /ps or -dev /vps, and the file pgplot.ps
+			will be created in the current directory
+
+-nogrid             - don't plot the grid
+
+-sky                - use sky coords to plot
+
+-name name          - put the name at the top of the plot (by default it
+		      reads "object" keyword, if not found uses just the
+		      file name
+
+-title title        - .... I don't remember the difference between the
+		      "title" and the "name"
+
+short=yes	    - plot just the contours, no box, no grid, no title etc.
+
+
+-smo sigma  or
+-smooth sigma       - smooth the image before plotting contours, e.g.
+			"contmap image -smo 2 -lev 1 2 3 4" will 
+			will smooth the "image" with the Gaussian sigma=2 
+			pixels, and plot contours at the levels 1,2,3 ... of
+			the smoothed image
+                            ~~~~~~~~
+---
+

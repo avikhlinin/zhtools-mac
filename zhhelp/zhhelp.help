@@ -1,0 +1,5 @@
+zhhelp zhtools		- list all avilable programs
+zhhelp program          - help file for this program
+zhhelp key keyword      - list all tasks which have a keyword in their name
+
+zhhelp regions		- explanation of the zhtools region files.

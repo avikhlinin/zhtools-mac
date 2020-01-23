@@ -1,0 +1,66 @@
+=head1 NAME
+
+B<pix2sky> - convert pixel to sky coordinates
+
+=head1 SYNOPSIS
+
+B<pix2sky> img=I<fits.image>  [out=I<rad/deg/hmsdms>]
+
+B<pix2sky> crval1=cv1 ...   [out=I<rad/deg/hmsdms>]
+
+=head1 DESCRIPTION	
+
+B<pix2sky> reads pixels from standard input and prints sky coordinates 
+to standard output, in radians by default.
+
+=over 4
+
+=item out=I<rad>
+
+output coordinates are in radians
+
+=item out=I<deg>
+
+output coordinates are in degrees
+
+=item out=I<hmsdms>
+
+output coordinates are in h:m:s d:m:s
+
+=back
+
+WCS keywords are read either from the image header or from command-line
+arguments. Two ways can be mixed, i.e. you can set CTYPE in the command line
+if it is absent in the image header.
+
+=head1 BUGS
+
+* There is currently no way to read FITS table extension WCS keywords
+
+* h:m:s d:m:s coordinates are always printed to a precision of 0.01 seconds
+in RA and 0.01 arcsec in Dec.
+
+
+=head1 SEE ALSO
+
+FTOOLS have a similar task, B<xy2sky>, which does only one coordinate pair
+at a time, but unlike B<pix2sky>, understands FITS table extensions.
+
+See also B<ad2rad>, B<sky2pix>, B<dsscoord>, B<sky2dss>
+
+
+=head1 EXAMPLES
+
+Sky coordinates in  the sexagesimal format are printed space-separated. For
+the colon-separated output, use
+
+   pix2sky out=hmsdms | awk '{print $1":"$2":"$3  $4":"$5":"$6}'
+ or
+   pix2sky out=hmsdms | perl -pe '{s/(\S)\s(\S)/$1:$2/g}'
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

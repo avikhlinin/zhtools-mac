@@ -1,0 +1,43 @@
+=head1 NAME
+
+B<addimages> - add images in sky coordinates. If you need a simple addition
+without any coordinate shifts, use B<stackimages>
+
+=head1 SYNOPSIS
+
+B<addimages> I<image1> I<image2> ... I<imageN>
+I<outimage> I<[mode=error]> I<[expand=no]> I<[exacttrans=yes]> 
+
+=head1 OPTIONS
+
+=over 4
+
+=item I<[mode=error]> 
+
+this options tells that the images contain noise, not signal. They will be
+added in quadrature.
+
+=item I<[expand=no]> 
+
+by default, the resulting image will be enlarged to cover all the input
+images. If I<expand=no> is in effect, the size of the output image will be
+equal to that of the first input image.
+
+=item I<[exacttrans=yes]> 
+
+If the input images have the same rotation in sky coordinates, the default
+behavior is to compute the shift between the images, and apply this shift
+over the entire image. If I<[exacttrans=yes]> is in effect, the real WCS
+conversions will be performed.
+
+=back
+
+=head1 SEE ALSO
+
+B<stackimages>
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

@@ -1,0 +1,22 @@
+  
+  
+  ISLAND	find connected domains in an image
+  
+   This task finds the region where image==value, splits this region into
+connected domains, and enumerates domains.
+
+  Usage:
+	  island  image   islandimage    value
+		  ~~~~~   ~~~~~~~~~~~
+	          input     output  
+      
+
+  Example: calculate fluxes of all sources detected by wavelets
+
+wvdecomp img wv   # creates an image wv, which is > 0 where a positive
+                  # signal is detected
+
+mkcond mask wv .gt. 0  # find these regions
+island mask mask 1     # enumerate all regions
+imexam img sum reg=mask printbyreg=yes
+

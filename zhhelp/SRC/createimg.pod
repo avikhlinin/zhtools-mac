@@ -1,0 +1,43 @@
+=head1 NAME
+
+B<createimg> - create new image
+
+=head1 SYNOPSIS
+
+B<createimg> I<[img=outimg]> I<[value=value]> I<[nx=nx ny=ny] [refimg=refimg]> I<[headerfrom=templ.fits]>
+
+=head1 DESCRIPTION	
+
+B<createimg> creates a new fits image with a user-specified size and
+filled with a user-specified value. Optionally, header keywords can be
+copied from another fits file.
+
+=head1 OPTIONS
+
+=over 4
+
+=item img=I<out.fits> 
+
+The name of the output image. If not set, the user
+will be prompted
+
+=item value=I<value> - the image value. By default, I<value>=0.
+
+=item refimg=I<refimg.fits> or I<nx=nx ny=ny>
+
+Set the size of the output image. It is either taken
+from the reference image, or is specified directly by I<nx=nx ny=ny>.
+
+=item headerfrom=I<templ.fits>
+
+The header keywords from this file will be
+copied into the new image. If I<headerfrom> is not set, but I<refimg> is
+given, the keywords will be copied from there.
+
+=back
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

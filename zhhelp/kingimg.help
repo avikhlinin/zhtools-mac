@@ -1,0 +1,7 @@
+
+  KING	 simulates a beta-model image
+
+  Usage:
+	kingimg [img=outimg] [a=a] [ax=ax] [ay=ay] [angle=angle] \
+	      [nx=nx] [ny=ny] [i0=i0] [j0=j0] [norm=norm] [beta=beta]
+

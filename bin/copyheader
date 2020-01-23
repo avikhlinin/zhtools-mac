@@ -1,0 +1,32 @@
+#!/bin/csh -f
+
+if ( $#argv == 0 || "$1" == "-h" ) then
+	zhhelp copyheader
+	exit 1
+endif
+
+
+set from = $1
+set no = $2
+shift 
+shift
+
+unset noclobber
+
+set tmpfil = /tmp/_fmodhead$$
+
+setenv LISTFITSHEADER $no
+
+listfits $from | grep "= " | grep -v "BSCALE" | \
+grep -v "BZERO" | grep -v "BITPIX" | grep -v "SIMPLE" > $tmpfil
+
+
+while ( $#argv > 0 )
+	set to = "$1"
+	modifyheader infile=$to header=$no templ=$tmpfil
+	shift
+end
+
+rm -f $tmpfil
+
+	

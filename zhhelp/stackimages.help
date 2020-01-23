@@ -1,0 +1,16 @@
+   ---
+   
+   
+   
+   STACKIMAGES  - add a number of images
+   --------
+   
+   Usage:
+   ------
+   stackimages image1 image2 ... imageN outimage [mode=error]
+
+	if mode=error then itis assumed that the input images contain rms
+	noise; for example, "sum" of error images equals 
+	sqrt(im1**2+im2**2+...+imN**2)
+       
+   ---

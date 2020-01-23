@@ -1,0 +1,223 @@
+=head1 NAME
+
+zhtools - [X-ray] astronomy data analysis package
+
+=head1 DESCRIPTION
+
+ZHTOOLS is a collection of stand-alone programs....
+
+=head1
+GENERAL ASTRONOMY TASKS
+
+=over 5
+
+=item B<ad2rad>
+ h:m:s d:m:s -> radians
+
+=item B<angle2size>
+ angular to proper size convertion in different cosmologies
+
+=item B<size2angle>
+ proper to angular size conversion in different cosmologies
+
+=item B<distance>
+ angular distance between two points in the sky
+
+=item B<rad2ad>
+ radians -> h m s d m s
+
+
+
+=head1 
+FITS DATA MANIPULATIONS
+
+=over 5
+
+=item B<addcomm>
+ adds comment records to FITS header
+
+=item B<addhist>
+ adds history records to FITS header
+
+=item B<chimtype>
+ change data type (e.g. real->integer) in an image
+
+=item B<copyheader>
+ copy header keywords from one FITS file to another
+
+=item B<fcolappend>
+ append a constant column to a FITS table
+
+=item B<fitspha>
+ convert ASCII files to FITS PHA. see also FTOOLS' ascii2pha
+
+=item B<iffits>
+ prints 1 if its argument is a fits file, 0 otherwise
+
+=item B<listfits>
+ print out FITS header info
+
+=item B<modifyheader>
+ modifies FITS header. This tools is derived from FTOOLS' fmodhead
+
+=item B<printkey>
+ prints a FITS keyword value
+
+=item B<rfits>
+ convert fits image to unformatted fortran file
+
+=item B<wfits>
+ convert unformatted fortran file to fits
+
+=head1
+IMAGE REDUCTION
+
+=over 5
+
+=item B<adapt>
+ smooth an image with circular top hat filter of adaptive size
+
+=item B<addimages>
+ coadd images in the sky coordinates
+
+=item B<atrous>
+ convolve an image with `a trous wavelet
+
+=item B<contmap>
+ draw a contour map
+
+=item B<createimg>
+ make a constant value image
+
+=item B<dsscoord>
+ DSS pixels to sky coordinates
+
+=item B<dssdetect>
+ detect sources in DSS plates
+
+=item B<dssoverlay>
+ overlay contours on DSS (or any other) image
+
+=item B<findpeak> 
+ find local maxima in an image
+
+=item B<gaussimg>
+ simulate a Gaussian image
+
+=item B<imarith>
+ simple arith. on two images. See also B<imcalc> and B<imcarith>
+
+=item B<imblock>
+ block and reblock the image
+
+=item B<imcalc>
+ arbitrary image calculus; for simple arithmetic, see B<imarith> and
+B<imcarith>
+
+=item B<imcarith>
+ constant value arithmetics with an image. Also sqrt, min, max, abs
+
+=item B<imcopy>
+ provided for image manupulation using FITSIO's extended name syntax
+
+=item B<imdiff>
+ reports pixel-by-pixel difference of two images
+
+=item B<imexam> reports many image statistics
+
+=item B<improj>
+ projection of a 2-d image along a direction
+
+=item B<imsmo>
+ smooth image with a Gaussian filter
+
+=item B<island>
+ find connected domains in an image
+
+=item B<kingimg>
+ simulate a beta-model image
+
+=item B<list2img>
+ convert ASCII `photon list' to an image
+
+=item B<makeimg> 
+ make an image from FITS events files. Probably made absolete by B<fitscopy>
+
+=item B<mexhat>
+ convolve an image with the Mexican Hat wavelet
+
+=item B<mkcond>
+ logical operation on an image
+
+=item B<mkedge>
+ set image to a value outside the given radius
+
+=item B<mkprof>
+ calculate radial surface brightness profile
+
+=item B<mkreg>
+ make a mask image from the ascii region descriptor
+
+=item B<pix2sky>
+ pixels -> sky
+
+=item B<poisson>
+ simulate Poisson scatter
+
+=item B<prof2img>
+ convert radial surface brightness profile to a 2d image
+
+=item B<saoimage2reg>
+ translate SAOimage region file to the zhtools region descriptor; this tool
+is almost obsolete because zhtools now understand SAOimage reg.files (see
+B<regions>)
+
+=item B<savecont>
+ save contours for further use by B<dssoverlay>
+
+=item B<scatter>
+ add Gaussian scatter to an image
+
+=item B<select>
+ apply temp, energy and spatial selection to a FITS events file; probably
+made obsolete by B<fitscopy>
+
+=item B<setval>
+ set image value in a region
+
+=item B<sky2pix> 
+ sky -> pixels
+
+=item B<sky2dss> 
+ sky -> to DSS pixels
+
+=item B<stackimages>
+ adds several images without shift
+
+=item B<wvdecomp>
+ wavelet decomposition
+
+=head1
+ROSAT-SPECIFIC
+
+=over 5
+
+=item B<extrspec> 
+ extract spectrum in 34 ROSAT channels
+
+=item B<makepsf>
+ make ROSAT PSPC PSF image for given source positions
+
+=item B<makespec>
+ make spectrum from Snowden's images
+
+=item B<psffwhm>
+ return FWHM of the PSPC PSF
+
+
+=head1 MISC
+
+=over 5
+
+=item B<getpar>
+ read command line arguments in shell scripts

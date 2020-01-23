@@ -1,0 +1,13 @@
+
+
+  IMDIFF     reports pixel-by-pixel differences in FITS images of the same
+	     size 
+
+  Usage:
+	imdiff img1 img2 [t=t or threshold=t] [mode=rel/abs]
+
+		t (or threshold) option sets the maximum alowable difference
+                  between the images. By default it is equal to the numeric
+		  precision around 1.0
+                mode = rel/abs  - does threshold mean absolute or relative
+		  deviation; default is mode=abs.

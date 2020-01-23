@@ -1,0 +1,3 @@
+Usage:
+  projectimg from=input.fits onto=wcsimg.fits out=output.fits [mode=add/sum]
+	[exact=yes] [subpix=n]

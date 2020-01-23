@@ -1,0 +1,66 @@
+=head1 NAME
+
+B<imblock> - block image
+
+=head1 SYNOPSIS
+
+B<imblock> I<img=input.fits> I<out=output.fits> n=nblock (or nx=nblockx,
+ny=nblocky) I<[mode=error]> I<[outtype=b/i/j/e]>
+
+B<imblock> I<input.fits> I<output.fits> n=nblock (or nx=nblockx,
+ny=nblocky) I<[mode=error]> I<[outtype=b/i/j/e]>
+
+=head1 DESCRIPTION
+
+B<imblock> blocks the image by given factors in X and Y directions.
+
+=head1 OPTIONS
+
+=over 4
+
+=item img=I<input.fits> 
+
+Input image. If not set explicitly, the first command line argument is used.
+
+=item out=I<output.fits> 
+
+Output image. If not set explicitly, the second command line argument is used.
+
+=item n=I<nblock> or nx=I<nx> ny=I<ny>
+
+Set the block factor. The B<n>= option sets same block factor in both
+directions, while B<nx>= and B<ny>= set the X and Y block factors
+independetly. Positive blocking factor means "block-sum" in this
+direction. Negative blocking factor means "unblock-average" in this
+direction. For example:
+
+ imblock img img2 n=2
+ imblock img2 img0 n=-2
+
+produces an image img0 which is equal to 4*img/
+
+=item mode=I<error>
+
+This option tells that the image contains error bars; the block-sum will be
+performed in quadrature.
+
+=item outtype=I<b/i/j/e>
+
+Set the output image type to integer*1, integer*2, integer*4, or real*4,
+respectively; by default, imblocks writes real*4 images.
+
+
+
+=back
+
+=head1 FEATURES
+
+B<imblock> updates WCS keywords assuming that point (1.0,1.0) is in the
+center of pixel (1,1)
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

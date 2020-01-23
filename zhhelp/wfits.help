@@ -1,0 +1,6 @@
+
+  WFITS  - utility to convert unformatter fortran files to FITS
+
+  Usage:
+	wfits inputimage
+

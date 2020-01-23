@@ -1,0 +1,5 @@
+ PRINTKEY	prints the value of keyword(s) in a FITS header
+
+ Usage:
+	printkey file keyname1[,keyname2,keyname3]
+

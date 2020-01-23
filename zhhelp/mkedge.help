@@ -1,0 +1,7 @@
+  
+  MKEDGE  - set image to a constant value outside a maximu radius
+  
+  
+  Usage:
+	  mkedge image outimage radius value
+

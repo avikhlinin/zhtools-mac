@@ -1,0 +1,38 @@
+   ---
+   
+   
+   
+   DSSOVERLAY  - overlay contours onto a DSS or regular FITS image
+   ~~~~~~~~~~
+   
+   
+   Usage:
+   ~~~~~~
+   dssoverlay plate contours plate.contours [lw=LW] [value=value] 
+   	 				[otype=OUTTYPE] [wcsmode=dss,fits]
+					[contsys=system, e.g. b1950,j1910]
+
+
+       
+ 			"plate" is the original image
+                    "contours" is the contours descriptor file made by
+                               SAVECONT
+                    "plate.cont" is the output image
+ 
+ 
+ 
+       		lw=LW        - set line width; 0 is default
+       		value=value  - set a particular value for drawing 
+					contours
+			otype=OUTTYPE :  i,j,e,d - integer*2, integer*4,       
+       					   real*4, real*8 output image
+       				 default is integer*2
+       		wcsmode=dss,fits - force using DSS or FITS coordinate systems
+                                   NORMALLY YOU SHOULD NOT SET THIS
+
+		contsys      - if the contours are in a coordinate system
+                               other than j2000 you should use the contsys=
+                               parameter to make the transformations.
+       
+       
+   ---

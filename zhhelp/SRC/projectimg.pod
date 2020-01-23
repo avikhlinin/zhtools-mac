@@ -1,0 +1,64 @@
+=head1 NAME
+
+B<projectimg> - projects one image onto the WCS of another
+
+=head1 SYNOPSIS
+
+B<projectimg> from=I<input.fits>  onto=I<wcsimg.fits> out=I<output.fits>
+	[mode=add/sum] [exact=yes] [subpix=n]
+
+=head1 DESCRIPTION	
+
+B<projectimg> projects a fits image onto the World Coordinate System of
+another image. 
+
+See B<improj> if you are looking for a program that projects an image onto
+an axis.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<from>=I<input.fits>
+
+Input image
+
+=item B<onto>=I<wcsimg.fits>
+
+The image defining the WCS of the output image
+
+=item B<out>=I<output.fits>
+
+Output image
+
+=item B<mode>=I<add> or <sum>
+
+By default, the input image pixels falling within a single pixel of the
+output image are averaged. If B<mode>=I<add/sum>, the values are added.
+
+=item B<exact=yes>
+
+By default, the WCS transformation is approximated by a linear function.
+With this option, the transformation will be the exact one.
+
+=item B<subpix=n>
+
+Split each pixel by I<nxn> subpixels and treat them independently
+
+=head1 BUGS
+
+* Only I<-TAN> projections are handled
+
+* The algorithm is fast but approximate for images with the same rotation
+and pixel size. For arbitrary WCS, the computation time may be long.
+
+=head1 SEE ALSO
+
+B<addimages>, B<imblock>, B<improj>
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

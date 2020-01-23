@@ -1,0 +1,48 @@
+=head1 NAME
+
+B<fitspha> - create a FITS format spectrum from an ASCII datases
+
+=head1 SYNOPSIS
+
+B<fitspha> I<data1> [I<data2> ...]
+
+=head1 DESCRIPTION
+
+For each input ASCII file I<data>, the program will create the output
+spectrum named I<data.pha>.
+
+The sample ASCII file is shown below. Do likewise.
+
+ TELESCOP ROSAT
+ INSTRUME PSPCB
+ TEXP     1.0
+ AREASCAL         1.000000E+00
+ BACKSCAL         1.000000E+00
+ CORRSCAL         0.000000E+00
+ BACKFILE none
+ CORRFILE none
+ RESPFILE pspcb_gain1_34.rsp
+ ANCRFILE none
+ CHANTYPE PHA
+ HDUCLAS2 NET           / Data are background subtracted spectrum
+ .... any other keywords
+ COMMENT any comments
+ HISTORY any history records
+ ====================================================================
+     RATE            ERR        QUALITY          GROUPING
+ 0                0                            5         1
+ 0                0                            5         1
+ 0                0                            5         1
+
+First line after ====== specifies column names; the following lines give
+column values, in free format. The number of columns and in their order is
+arbitrary.
+
+
+=head1 SEE ALSO
+
+FTOOLS have a similar task called B<ascii2pha>.
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>

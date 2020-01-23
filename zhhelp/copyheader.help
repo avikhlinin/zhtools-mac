@@ -1,0 +1,11 @@
+
+  COPYHEADER	 copies the header keywords from one fits image to a set of
+                 other fits images
+
+  Usage:
+	copyheader from.file headerno img [img2 [img3 ...]
+
+headerno specifies the extension to which the header should be copied 
+(0 means the primary extension). For a more general manipulation of the 
+FITS headers, see listfits and modifyheader
+

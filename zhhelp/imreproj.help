@@ -1,0 +1,23 @@
+
+    IMREPROJ  -- inverse of IMPROJ; convert IMPROJ output back to image
+
+    Usage:
+	imreproj prof=prof.dat out=img.fits [angle=a] [xref=xref] [yref=yref]
+               refimg=reference_image [or nx=nx ny=ny]
+
+		angle           specifies direction in degrees. If angle=0,
+				projection is assumed to be onto X-axis along 
+				Y-axis; if angle=90, projection is on Y
+				along X
+
+		xref, yref	image coordinates of the reference pixel at 
+				which the projected coordinate is zero
+				xref=0, yref=0 is the default
+		
+		prof.dat        - should be the output from improj with
+                                identical angle, xref, and yref parameters
+
+		refimg=reference_image   # refimg is used to set the output
+			or               # image size. One can set them 
+		nx=nx ny=ny              # using nx= and ny= switches
+

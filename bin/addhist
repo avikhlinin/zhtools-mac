@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if test $# = 0
+    then
+	zhhelp addhist
+	exit 1
+fi
+
+file=$1
+
+unset noclobber
+echo "Input history record(s), cntrl-D to stop"
+
+awk '{print "HISTORY",$0}' > /tmp/templ.$$
+
+modifyheader infile=$file header=0 templ=/tmp/templ.$$
+
+rm -f /tmp/templ.$$

@@ -1,0 +1,16 @@
+
+  ROSATPSFFWHM  - print values of the width (FWHM or sigma) of the ROSAT 
+		  PSPC PSF.
+
+  Usage:
+	rosatpsffwhm pspc offaxis_angle [e=E] [sigma=yes]
+
+	"pspc" is a  word which indicates that you really want ROSAT PSPC
+	offaxis_angle is off-axis angle in arcmin
+	e=E set the energy at which you want the PSF width
+	sigma=yes - print result as equivalent Gaussian sigma instead of FWHM
+
+  The task prints the PSF width in arcsec and 5" pixels
+
+
+	

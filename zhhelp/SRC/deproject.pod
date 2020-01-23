@@ -1,0 +1,36 @@
+=head1 NAME
+
+B<deproject> - spherical deprojection of the surface brightness profiles.
+
+
+=head1 SYNOPSIS
+
+B<deproject> prof=I<prof.file>  [bg=I<bglevel>]
+
+=head1 DESCRIPTION	
+
+B<deproject> performs a 3-D deprojection of a surface brightness profile
+assuming spherical symmetry. The profile must be background-subtracted, or
+the background level must be supplied. The I<prof.file> should be in the
+B<mkprof> format.
+
+=head1 OPTIONS
+
+=over 4
+
+=item I<bg=bglevel>
+
+Set the background level (in the same units as the surface brightness).
+
+=back
+
+=head1 SEE ALSO
+
+See also B<mkprof>
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

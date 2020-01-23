@@ -1,0 +1,23 @@
+  
+  IMBLOCK  - block images
+  
+  Usage:
+	imblock image outimage n=nblock (or nx=nblockx ny=nblocky) 
+		[mode=error] [outtype=b/i/j/e]
+  	
+        mode=error    -- input image contains errors, not intensities.
+
+	outtype=b/i/j/e sets the datatype in the output image to integer*1,
+			integer*2, integer*4, or real*4; by default,
+                        imblocks writes real images.
+
+	positive blocking factor means "block-sum" in this direction
+	negative blocking factor means "unblock-average" in this direction
+ For example:
+imblock img img2 n=2
+imblock img2 img0 n=-2
+produces an image img0 that is equal to img*4
+
+Imblock updates WCS keywords assuming that point (1.0,1.0) is in the center
+of pixel (1,1)
+

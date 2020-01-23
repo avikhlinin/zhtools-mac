@@ -1,0 +1,26 @@
+=head1 NAME
+
+gtifits - convert ASCII GTI data to FITS
+
+=head1 SYNOPSIS
+
+B<gtifits> I<asciifile> I<fitsfile>
+
+=head1 DESCRIPTION
+
+The primary reason for B<gtifits> existence is that the on-the-fly time
+filtering allowed by cfitsio requires FITS format for the GTI data. Users,
+however, often create time intervals as plain text. So, we need a quick
+tool to convert ascii GTI to FITS and then use the FITS file with CFITSIO.
+
+B<gtifits> understands ascii files in two formats:
+
+ 100000.1 1000001.0
+ 100002.0 1000020.0
+
+and
+
+ 1 100000.1 1000001.0
+ 2 100002.0 1000020.0
+
+

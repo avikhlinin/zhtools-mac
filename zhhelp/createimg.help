@@ -1,0 +1,9 @@
+
+This task creates a constant image of a given size.
+
+    createimg [img=outimg] [value=value]  [nx=nx ny=ny] or [refimg=refimg]
+	      [headerfrom=templ.fits]
+
+The size of the output image is defined by either nx,ny parameters or is the 
+same as in refimg
+

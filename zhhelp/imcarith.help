@@ -1,0 +1,14 @@
+   ---
+   
+   
+   
+   IMCARITH  - image and constant arithmetics
+   --------
+   
+   Usage:
+   ------
+   icmarith outimg = image operation value
+
+	operation is + - / "*" min max, or sqrt abs; if operation = sqrt or abs,
+	value may be undefined    
+   ---

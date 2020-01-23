@@ -1,0 +1,41 @@
+---
+
+	IMEXAM - get some image statistics
+
+	
+	Usage: imexam image mode1[,mode2,...] [reg=reg] [exclreg=exclreg] \
+		        [printbyreg=yes] \
+			[clean=yes] [threshold=t] \
+
+	modes:
+		sum
+		mean
+		errmean          - standard dev. of the mean
+		median
+		dispersion
+		stddev
+		absdev           - average abs(x-<x>)
+		square           - average x**2
+		sumsquare        - sum x**2
+		max
+		min
+		value  i j       - image value in pixel i,j
+		meancoords       average x,y over the reg
+
+	reg=reg   - do the statistics in the region specified in the
+		       region file, which can be
+				1) SAOimage region file
+				2) FITS image with 1's in the region of
+				   interest and 0 outside
+				3) ZHTOOLS region file (zhhelp regions)
+	
+        exclreg=reg - similar to reg=, but exclude this region.
+
+	clean=yes    - do some cleaning before calculations. Pixels deviating
+                       by more than t sigma (default 3, can be set by the 
+		       "threshold" parameter) will be discarded.
+
+	if printbyreg=yes, the values are printed in regions where reg==1, 
+                 reg==2, reg==3 and so on. If printbyreg=no, which is
+                 default, the statitics is calculated in the region reg!=0
+

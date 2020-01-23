@@ -1,0 +1,24 @@
+  
+  
+  ATROUS  - convolve image with a trous wavelet
+  
+  Usage:
+	atrous image [show=yes] [out=outfile] [scale=scale] [bkgd=bgimage] \
+			[exp=expimg] [smooth=yes]
+
+	      scale=1,2,3...  sets the kernel width
+	      
+	      if bkgd=bgimage is set, bgimage is subtracted from the data
+		 before the convolution
+	      if exp=expimg is set, data is divided by (expimg/mean(expimg))
+		 before the convolution
+              These two options can be used to remove the influence of
+	      detector artifacts
+
+	      is smooth=yes, only a convolution with the positive part of
+                the kernel is performed. This can be used as a substitute
+                for imsmo when no data wrapping is desired.
+                
+              if show=yes and no out is specified, just shows the 
+			 convolved image
+

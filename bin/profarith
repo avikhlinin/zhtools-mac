@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+
+($prof1,$operation,$prof2) = @ARGV;
+
+if ( ! $prof1 || ! $prof2 || ! $operation ) { &usage; }
+
+if ( ! -f $prof1 && $prof1 ne "-" ) {
+  print STDERR $prof1," not found\n";
+  &usage;
+}
+
+$prof2isanumber = 0;
+
+if ( ! -f $prof2 ) {
+  if ($prof2 =~ /^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$/ ) {
+    $prof2isanumber = 1;
+  } else {
+    &usage;
+  }
+}
+
+
+if ( 
+    $operation ne "+" && 
+    $operation ne "-" && 
+    $operation ne "*" && 
+    $operation ne "/" ) { &usage; }
+
+if ( $prof1 eq "-" ) {
+  $PROF1 = *STDIN;
+} else {
+  open (GOV,$prof1) || die "Can't open $prof1\n";
+  $PROF1 = *GOV;
+}
+if ( ! $prof2isanumber ) {
+  open (PROF2,$prof2) || die "Can't open $prof2\n";
+}
+
+while ( <$PROF1> ) {
+
+  $line1 = $_; chomp $line1; 
+  ($rmin1,$rmax1,$sum1,$npix1,$mean1,$err1) = split (' ',$line1);
+
+  if ( $prof2isanumber ) {
+    $mean2 = $prof2; $err2 = 0;
+  } else {
+    $line2 = <PROF2>; chomp $line2;
+    ($rmin2,$rmax2,$sum2,$npix2,$mean2,$err2) = split (' ',$line2);
+  }
+
+  if ( $operation eq "+" ) {
+    $mean = $mean1 + $mean2;
+    $err = sqrt ($err1**2+$err2**2);
+  }
+  elsif ( $operation eq "-" ) {
+    $mean = $mean1 - $mean2;
+    $err = sqrt ($err1**2+$err2**2);
+  }
+  elsif ( $operation eq "*" ) {
+    $mean = $mean1 * $mean2;
+    if ( $prof2isanumber) {
+      $err = $err1*$mean2;
+    } else {
+      $err = sqrt ($mean**2*(($err1/$mean1)**2+($err2/$mean2)**2));
+    }
+  }
+  elsif ( $operation eq "/" ) {
+    $mean = $mean1 / $mean2;
+    if ( $prof2isanumber) {
+      $err = $err1/$mean2;
+    } else {
+      if ($err1 != 0) { 
+	$werr1 = $err1/$mean1;
+      }	else {
+	$werr1 = 0.0;
+      }	
+      if ($err2 != 0) { 
+	$werr2 = $err2/$mean2;
+      }	else {
+	$werr2 = 0.0;
+      }	
+      $err = sqrt ($mean**2*($werr1**2+$werr2**2));
+    }
+  }
+
+  print join (' ',$rmin1,$rmax1,$sum1,$npix1,$mean,$err),"\n";
+}
+
+sub usage {
+  die "Usage: $0 prof1 +-*/ prof2\n";
+}
+

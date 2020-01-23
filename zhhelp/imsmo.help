@@ -1,0 +1,29 @@
+   ---
+   
+   
+   
+   IMSMO  - image smoothing
+   -----
+   
+   
+   Usage:
+   ------
+   imsmo [-sigma sigma] [-exact] [-show] [-o outimage] [copyheader-] inputimage
+   	
+   		-sigma sigma   sigma of the Gaussian
+		-exact         exact convolution using FFT; image sizes must
+			       be powers of 2. 
+   		-show          do not write output, just show via saoimage
+   		-o outimage    set the output image name expicitly; if no 
+   			       output name is specified, the smoothed image 
+   			       will be written to inputimage.smo
+		copyheader-    Do not copy the header from the input image
+   
+
+   Method:
+   -------
+   Crude convolution of an input image with Gaussian  (3 successive
+   convolutions with rectangular functions). With "-exact" the exact 
+   convolution is performed using FFT.
+
+   ---

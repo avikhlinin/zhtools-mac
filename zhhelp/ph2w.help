@@ -1,0 +1,19 @@
+
+PH2W is an alias to PIX2SKY. It converts pixels to sky coordinates
+
+Usage:
+	pix2sky img=fits.image  [out=rad,deg,hmsdms]
+	 -or- [
+	pix2sky crval1=cv1 ... and  all other keywords  [out=rad,deg,hmsdms]
+
+	
+
+	pix2sky reads pixels from standard input and prints sky coordinates 
+	to standard output. By default, pix2sky outputs radians. You can
+	change this by the out= option:
+		out=rad		- output radians
+		out=deg		- output degrees
+		out=hmsdms	- output in sexagesimal format
+
+
+

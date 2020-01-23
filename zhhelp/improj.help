@@ -1,0 +1,19 @@
+
+    IMPROJ  -- project an image along some direction
+
+    Usage:
+	improj image [reg=region] [exclreg=exclude.region] [angle=a] \
+		[xref=xref] [yref=yref] [pmin=pmin] [pmax=pmax]
+
+		reg, exclreg    are regular ZHTOOLS region files
+                                (see zhhelp regions)
+		angle           specifies direction in degrees. If angle=0,
+				image will be projected onto X-axis along 
+				Y-axis; if angle=90, projection is on Y
+				along X
+
+		xref, yref	image coordinates of the reference pixel at 
+				which the projected coordinate is zero
+				xref=0, yref=0 is the default
+		
+		pmin, pmax	sets the output range of projection. 

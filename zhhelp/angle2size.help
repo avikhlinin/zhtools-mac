@@ -1,0 +1,21 @@
+
+  ANGLE2SIZE  convert angular to proper size in different cosmologies
+
+  Usage:
+	angle2size z=z [Omega=Om Lambda=Ol H0=h0 angle=angle out=kpc,Mpc,cm]
+              [dl=yes]
+
+		defaults: Omega=1, Lambda=0, H0=50, angle=1arcsec, out=kpc
+
+		you can use units in the angle parameter:
+			angle=0.3arcsec
+			angle=1arcmin
+			angle=0.01deg
+			angle=1rad
+		default angular units are arcsec.
+
+	Note that if you specify angle=1rad, the program calculates the
+	angular size distance.
+
+        dl=yes tells to multiply sizes by (1+z)^2; this is handy for computing
+               the luminosity distance: angle2size angle=1rad dl=yes

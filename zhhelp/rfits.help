@@ -1,0 +1,6 @@
+
+  RFITS  - convert FITS to an unformatted fortran file.
+
+  Usage:
+	rfits  fits=inputimage out=file 
+

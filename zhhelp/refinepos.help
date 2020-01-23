@@ -1,0 +1,1 @@
+Usage: refinepos img=img.fits iter=n_iterations rsrc=radius [c=x0,y0] [i=file]

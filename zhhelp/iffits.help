@@ -1,0 +1,18 @@
+
+  IFFITS      prints 1 if its argument is a fits file and 0 otherwise
+
+  Usage:
+	iffits file
+
+
+This program is useful in shell scripts:
+
+#/bin/csh -f
+
+set file = $1
+
+if ( `iffits $file` ) then
+	echo Do some FITS processing
+else
+	echo Do some ASCII processing
+endif

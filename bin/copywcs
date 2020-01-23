@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+#
+# Copy WCS keys from one image to another
+#
+# Usage: copywcs from.fits to.fits [to2.fits] ...
+
+
+if ( $#ARGV < 1 ) { die "Usage: copywcs from.fits to.fits [to2.fits] ...\n"}
+
+$infile = shift @ARGV;
+
+# keywords taken from http://tdc-www.harvard.edu/wcstools/cphead.wcs.html
+# keywords taken from ds9's FrameBase::saveFitsResampleKeyword routine
+@keys=("EPOCH", "RADECSYS", "EQUINOX", 
+       "CTYPE1", "CTYPE2", "CRVAL1", "CRVAL2", "CRPIX1", "CRPIX2",
+       "CDELT1", "CDELT2", "CROTA1", "CROTA2", "CUNIT1", "CUNIT2",
+       "CD1_1", "CD1_2", "CD2_1", "CD2_2",
+       "PV1_0", "PV1_1", "PV1_2", "PV1_3", "PV1_4",
+       "PV1_5", "PV1_6", "PV1_7", "PV1_8", "PV1_9",
+       "PV2_0", "PV2_1", "PV2_2", "PV2_3", "PV2_4",
+       "PV2_5", "PV2_6", "PV2_7", "PV2_8", "PV2_9",
+       "LTM1_1", "LTM1_2", "LTM2_1", "LTM2_2", "LTV1", "LTV2",
+       "DTM1_1", "DTM1_2", "DTM2_1", "DTM2_2", "DTV1", "DTV2");
+
+foreach $file ( @ARGV ) {
+  open (MODHEAD,"| printkey $infile - parnames=yes | grep -v undefined | modifyheader $file templ=-") || die "printkey | grep | modifyheader: $!\n";
+  foreach $key ( @keys ) {
+    print MODHEAD $key,"\n";
+  }
+  close(MODHEAD);
+}

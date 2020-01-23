@@ -1,0 +1,19 @@
+
+W2PH is an alias to SKY2PIX. It converts sky coordinates (in radians) to pixels.
+
+Usage:
+	sky2pix img=fits.image
+	 -or- [
+	sky2pix crval1=cv1 ... and  all other keywords
+
+	
+
+	sky2pix reads sky coordinates from standard input and prints pixels
+	to standard output
+
+
+	To convert coordinates in the form hh:mm:ss dd:mm:ss, use
+	ad2rad | sky2pix ....
+
+	To convert sky coordinates in degrees, use -deg switch to sky2pix
+

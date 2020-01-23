@@ -1,0 +1,20 @@
+
+
+bbimages	- extract images in Snowden's bands
+cleandata 	- some (vikhl-specific) data cleaning
+crosscorr	- cross-correlate images
+makespec        - make spectrum from Snowden's images
+extrspec	- extract spectrum in 34 ROSAT channels from the given reg.
+makeimg		- make an image from the events list (with some temp, ener
+		  and spat. screening)
+
+makepsf		- make PSF image for given source positions (one can
+		  optionally create PSF core, PSF wings images)
+
+phalign		- align photons == correct small errors in the aspect solution
+pspcfwhm	- return FWHM of the PSPC PSF
+select		- apply temp, energy and spatial selection to an events list
+smoothros	- smooth rosat image to the constant resolution (correct the
+		  spatial variations of the PSF)
+
+splitgti	- make images in the individual GTIs

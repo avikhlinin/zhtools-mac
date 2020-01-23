@@ -1,0 +1,5 @@
+
+Usage:
+	sky2pix img=fits.image  [-deg]
+	 -or-
+	sky2pix crval1=cv1 ... [-deg]

@@ -1,0 +1,57 @@
+
+MAKEIMG  - creates an image from the events file.
+~~~~~~~
+
+Usage:
+~~~~~~
+makeimg events_file output_image \
+	[nx=nx] [ny=ny]
+	[pimin=PIMIN] [pimax=PIMAX] [tmin=TMIN] [tmax=TMAX] \
+	[pixel=PIXELSIZE] [xrange=XMIN,XMAX] [yrange=YMIN,YMAX] \
+	[piname=PI_COL_NAME] [xname=X_COL_NAME] [yname=Y_COL_NAME] \
+	[tname=TIME_COL_NAME] [extname=EVENTSNAME] \
+	[NEWCRPIX1=crpix1] [NEWCRPIX2=crpix2] 
+	
+events_file   - photon events file
+
+output_image  - the output fits file; if "-show" then the program will
+                invoke the SAOimage to display the image
+
+The defaults of the optional parameters are appropriate for generating the 
+ROSAT image with 15" pixels in the PI range 20-240.
+
+nx=nx, ny=ny  - set the output imag size in pixels; default is 512x512
+
+pimin=PIMIN, pimax=PIMAX   - set the min/max PI channel; default is 20/240
+
+tmin=TMIN     - reject all photons which were detected prior to TMIN
+tmax=TMAX     - reject all photons which were detected after TMAX
+
+pixel=PIXELSIZE - set the pixel size in arcsec, default 15
+                                        ~~~~~~
+xrange=XMIN,XMAX  - use only photons in the X pixel range (XMIN,XMAX); default
+		    is 1,15360 (appropriate for the ROSAT PSPC)
+yrange=YMIN,YMAX  - same for the Y-range
+
+piname=PINAME     - set the PI column name; default is 'PI'
+xname=XNAME       - set the X column name; default is 'X'
+yname=YNAME       - same for Ys.
+tname=TNAME       - set the TIME column name; default is 'TIME'
+
+extname=EVENTSNAME - set the events extension name; default "STDEVT". if
+			this extension is not found, "EVENTS" and "PHOTLIST"
+			are also searched for.
+
+NEWCRPIX1=crpix1  - these switches overwrite (or set) CRPIX1-2 keywords
+NEWCRPIX2=crpix2    from the events file 
+
+EXAMPLES
+~~~~~~~~
+Make 512x512, 5" pixel image from a ROSAT PSPC event list:
+
+  makeimg events.file output.image pixel=5 xrange=5120,10240 yrange=5120,10240
+
+PROBLEMS AND "FEATURES"
+~~~~~~~~~~~~~~~~~~~~~~~
+a) Only one time interval may be set for selection (tmin, tmax).
+

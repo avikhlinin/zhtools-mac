@@ -1,0 +1,11 @@
+
+  EXTRROSATSPEC   extracts a spectrum in 34 ROSAT energy channels in the format
+	   suitable for XSPEC.
+
+  Usage:
+	extrrosatspec data=event.file out=keyword src=source_region\
+                bkgd=background_region  [nh=nH]\
+	        [pixel=pixelsz (arcsec)] 
+		[xrange=xrange] [yrange=yrange]
+	        [tmin=tmin] [tmax=tmax] [gti=GTI.file]\
+		[xname=xname] [yname=yname] [events=eventname]

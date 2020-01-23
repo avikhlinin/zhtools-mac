@@ -1,0 +1,21 @@
+   IMARITH  - image arithmetics
+   
+   Usage:
+   ------
+   imarith out = image1 operation image2 [mode=error]
+   imarith out = image1 operation CONSTANT
+
+	if mode=error then it is assumed that the input images contain rms
+	noise; for example, "sum" of error images equals sqrt(im1**2+im2**2)
+
+	Logical operations are also supported (.and. .or. .not.)
+
+   Examples:
+   imarith img.3-6.fits = img.3-4.fits + img.4-6.fits
+   imarith img.3-6.flat.fits = img.3-6.fits / exposure.3-6.fits
+   imarith img.3-6.test.fits = img.3-6.fits "*" exposure.3-6.fits
+   imarith mask.1-2.fits = mask.1.fits .or. mask.2.fits
+   imarith img.fits = img.fits "*" 2.71828
+
+
+

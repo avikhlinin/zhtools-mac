@@ -1,0 +1,39 @@
+
+IMCALC  - image calculator
+
+NOTE: For simple arithmetics on two images, * + - / or sqrt, use imarith;
+      use stackimages for adding many images.
+
+Usage:
+imcalc expression
+	
+	expression is any correct FORTRAN expression at single precision.
+
+Examples:
+---------
+
+1) Set an image to zero
+% ls
+ 900029.img
+ a1367.img
+ a1367.img.sw
+ ttt.img
+% imcalc ttt.img = 0.
+
+
+
+
+2) Calculate any arithmetic expression at several images:
+
+% ls
+ 900029.img
+ a1367.img
+ a1367.img.sw
+ ttt.img
+% imcalc ttt.img = " log ( max ( a1367.img.sw + ttt.img , 0.1)**3.14)"
+
+Be sure to put all "bad" symbols (*, parentheses) inside quotes. Also, file
+names must be surrounded by spaces.
+
+
+

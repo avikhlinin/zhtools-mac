@@ -1,0 +1,68 @@
+General astronomical tasks:
+
+ad2rad		- alpha, delta (h m s d m s) -> alpha,delta (radians)
+angle2size      - convert angular to proper size in different cosmologies
+size2angle      - convert proper to angular size in different cosmologies
+distance	- angular distance between two points in the sky
+
+
+
+adapt		- smooth an image with circular top hat filter of adaptive size
+addcomm		- adds comment records to FITS header
+addhist		- adds history records to FITS header
+addimages	- coadd images in the sky coordinates
+atrous		- convolve an image with `a trous wavelet
+chimtype	- change data type (e.g. real->integer) in an image
+contmap		- draw a contour map
+copyheader	- copy a header from one FITS image to the other
+createimge	- make new constant FITS image
+dsscoord	- convert DSS pixels to sky coordinates
+dssdetect	- detect sources in the DSS plates
+dssoverlay	- overlay contours on the DSS (or FITS) image
+extrspec	- extract spectrum in 34 ROSAT channels
+fcolappend	- adds a constant column to a FITS table
+findpeak	- detect local maxima in an image
+fitspha		- convert ASCII files to FITS PHA. see also FTOOLS' ascii2pha
+gaussimg	- simulate Gaussian image
+getpar		- read command line parameters in shell scripts
+iffits		- returns 1 if its argument is a fits file, 0 otherwise
+imarith		- simple arith. on two images. See also "imcalc" and "imcarith"
+imblock		- block and reblock the image
+imcalc 		- arbitrary image calculus; for simple arithmetic see imarith
+imcarith	- image and constant arithmetics
+imcopy          - provided for image manupulation using extended FITSIO syntax
+imdiff		- reports pixel-by-pixel difference of two images
+imexam		- mean, min, max many other characteristics of the image
+improj		- print out the projection of the 2-d image along a direction
+imsmo 		- smooth image with a Gaussian filter
+island		- find distinct islands of 1s in the see of 0s
+kingimg		- simulate a beta-model image
+list2img	- convert photon list to an image
+listfits	- display FITS headers
+makeimg		- make an image from the events list
+makepsf		- make ROSAT PSPC PSF image for given source positions
+makespec        - make spectrum from Snowden's images
+mexhat		- convolve an image with the Mexican Hat wavelet
+mkcond		- logical operation on an image
+mkedge		- set image to a value outside the given radius
+mkprof		- radial profile of the source
+mkreg		- make a mask image from the ascii region descriptor
+modifyheader	- modifies FITS header
+pix2sky		- "pixels -> sky" coordinates
+poisson		- Poisson scatter of the existing image
+printkey	- prints a FITS keyword value
+prof2img	- convert profile back to image
+psffwhm		- return FWHM of the PSPC PSF
+rad2ad		- radians -> h m s d am as
+rfits		- convert fits to unformatted fortran write
+saoimage2reg	- translate SAOimage region file to the region descriptor
+savecont	- save contours for further use by images.dss/dssoverlay
+scatter		- apply Gaussian scatter to an axisting image
+select		- apply temp, energy and spatial selection to an events list
+setval		- set image value in the region
+sky2pix		- "sky -> pixels"
+sky2dss		- conver sky coordinates to DSS pixels
+stackimages	- adds several images without shift
+wfits		- convert unformatted fortran file to fits
+wvdecomp	- wavelet decomposition routine
+

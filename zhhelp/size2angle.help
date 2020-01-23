@@ -1,0 +1,16 @@
+
+  SIZE2ANGLE  convert proper to angular size in different cosmologies
+
+  Usage:
+	size2angle z=z [Omega=Om Lambda=Ol H0=h0 size=size out=arcmin,deg,rad]
+
+		defaults: Omega=1, Lambda=0, H0=50, size=1kpc, out=arcsec
+
+		you can use units in the size parameter:
+			angle=0.3cm
+			angle=1kpc
+			angle=0.01pc
+			angle=1Mpc
+		default size units are kpc.
+
+

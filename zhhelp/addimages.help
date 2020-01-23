@@ -1,0 +1,11 @@
+     
+     ADDIMAGES  - adds a set if images in sky coordinates. If you need an
+simple addition without any coordinate shift, use "stackimages"
+     
+     Usage:
+     ------
+     addimages image1 image2 ... imageN outimage [mode=error] [expand=no]
+     	
+	if mode=error is set, images are added in quadrature
+	if expand=no, the output image has the same size as image1; by
+           default, output is expanded to hold the entire montage.

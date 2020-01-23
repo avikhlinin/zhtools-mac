@@ -1,0 +1,8 @@
+
+  FCOLAPPEND	- appends a constant column to a fits table
+
+  Usage:
+	fcolappend  data out colname \
+		[type=coltype] [unit=colunit] [value=value] \
+		[copyall=no]
+

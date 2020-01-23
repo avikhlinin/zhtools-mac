@@ -1,0 +1,20 @@
+   ---
+   
+   
+   
+   SAVECONT  - save image contrours for use in DSSOVERLAY
+   ~~~~~~~~
+   
+   
+   Usage:
+   ~~~~~~
+   savecont image contfile -lev z1 z2 ...
+
+
+       
+ 		       "image" is the original image
+                    "contfile" is the output contour file
+                    
+		z1, z2 are level values for the contours
+       
+   ---

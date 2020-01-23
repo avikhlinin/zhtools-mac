@@ -1,0 +1,56 @@
+=head1 NAME
+
+B<sky2pix> - convert sky coordinates (in radians or degrees) to pixels.
+
+=head1 SYNOPSIS
+
+B<sky2pix> img=I<fits.image>  [-deg or in=deg or input=deg]
+
+B<sky2pix> crval1=I<cv1> ... [-deg or in=deg or input=deg]
+
+=head1 DESCRIPTION	
+
+B<sky2pix> reads sky coordinates from standard input and prints pixels
+to standard output
+
+=over 4
+
+=item I<-deg>
+
+if -deg is set, input coordinates are in degrees; by default, they are in
+radians. This option also can be set as I<input=deg> or I<in=deg>
+
+=back
+
+WCS keywords are read either from the image header or from command-line
+arguments. Two ways can be mixed, i.e. you can set CTYPE in the command line
+if it is absent in the image header.
+
+=head1 BUGS
+
+* There is currently no way to read FITS table extension WCS keywords
+
+* Pixel coordinates are always printed to a precision of 0.001 pixels. If
+they are outside of -9999.999 to 99999.999 range, stars are printed.
+
+
+=head1 SEE ALSO
+
+FTOOLS have a similar task, B<sky2xy>, which does only one coordinate pair
+at a time and accepts only the degrees input, but unlike B<sky2pix>,
+understand FITS table extensions.
+
+See also B<ad2rad>, B<pix2sky>, B<dsscoord>, B<sky2dss>
+
+
+=head1 EXAMPLES
+
+To convert coordinates in hh:mm:ss dd:mm:ss, use
+ 
+ ad2rad | sky2pix ....
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

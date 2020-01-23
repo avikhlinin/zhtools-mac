@@ -1,0 +1,10 @@
+
+Usage:
+    wvdecomp image outkey
+	[kernel=gauss/atrous] [iter=niter] [scalemin=smin] [scalemax=smax]
+	[threshold=t] [thresholdmin=tmin]
+	[stat=gauss/poisson] [errimg=errorimage]
+	[bg=bgimage] [exp=expimage]
+	[detectnegative=yes] [considershape=yes/no]
+	[savenoise=yes] [save=yes]
+	[restore=restorefile]

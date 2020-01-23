@@ -1,0 +1,36 @@
+=head1 NAME
+
+fitsparsename - prints components of the (CFITSIO) fits file name
+
+=head1 SYNOPSIS
+
+B<fitsparsename> fitsfile
+
+=head1 DESCRIPTION
+
+B<fitsparsename> shows how CFITSIO interprets different components of the
+file name. The components are printed one per line, in the following order:
+
+=over 4
+
+=item I<filetype> - file://, ftp:// etc
+
+=item I<infile> - base name of the inout file
+
+=item I<outfile> - name of the optional output file
+
+=item I<extension> - FITS extension specification
+
+=item I<filter> - row filter
+
+=item I<binspec> - binning/histogram specification
+
+=item I<colspec> - column selection specification
+
+=back
+
+This tool can be used interactively when the user finds a problem with the
+CFITSIO extended name syntax. Another application is name parsing in perl
+scripts.
+
+

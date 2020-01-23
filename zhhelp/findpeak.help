@@ -1,0 +1,16 @@
+ ---
+ 
+ FINDPEAK  - find local maxima in an image
+ -----
+ 
+ 
+ Usage:
+ ------
+ findpeak img=image [rmatch=rmatch] [rmin=rmin] [rmax=rmax] [o=outfile] \
+                [threshold=threshold]
+ 	
+  	rmatch    -- minimum distance (pix) between sources (def: 1)   
+  	rmin and rmax are inner edges of the image region to be used
+  	o         -- write to a file instead of STDOUT
+  	threshold -- detection threshold (def: no default)
+ ---

@@ -1,0 +1,504 @@
+.rn '' }`
+''' $RCSfile: zhtools.1,v $$Revision: 1.1.1.1 $$Date: 2006/09/14 17:36:42 $
+'''
+''' $Log: zhtools.1,v $
+''' Revision 1.1.1.1  2006/09/14 17:36:42  eric
+''' initial check-in
+'''
+'''
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.ds PI pi
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+'''   \*(M", \*(S", \*(N" and \*(T" are the equivalent of
+'''   \*(L" and \*(R", except that they are used on ".xx" lines,
+'''   such as .IP and .SH, which do another additional levels of
+'''   double-quote interpretation
+.ds M" """
+.ds S" """
+.ds N" """""
+.ds T" """""
+.ds L' '
+.ds R' '
+.ds M' '
+.ds S' '
+.ds N' '
+.ds T' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds M" ``
+.ds S" ''
+.ds N" ``
+.ds T" ''
+.ds L' `
+.ds R' '
+.ds M' `
+.ds S' '
+.ds N' `
+.ds T' '
+.ds PI \(*p
+'br\}
+.\"	If the F register is turned on, we'll generate
+.\"	index entries out stderr for the following things:
+.\"		TH	Title 
+.\"		SH	Header
+.\"		Sh	Subsection 
+.\"		Ip	Item
+.\"		X<>	Xref  (embedded
+.\"	Of course, you have to process the output yourself
+.\"	in some meaninful fashion.
+.if \nF \{
+.de IX
+.tm Index:\\$1\t\\n%\t"\\$2"
+..
+.nr % 0
+.rr F
+.\}
+.TH ZHTOOLS 1 " " "28/Apr/2000" "ZHTOOLS User guide"
+.UC
+.if n .hy 0
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds /
+.	ds q
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME"
+\fIZHTOOLS\fR \- programs for X\-ray astronomy
+.SH "DESCRIPTION"
+\fIZHTOOLS\fR is a collection of stand-alone UNIX programs useful for reduction of
+astronomical images in FITS format and of X\-ray data in general.
+.SH "GENERAL ASTRONOMY TASKS"
+.Ip "\fIad2rad\fR" 4
+h:m:s d:m:s \-> radians
+.Ip "\fIangle2size\fR" 4
+angular to proper size conversion in different cosmologies
+.Ip "\fIsize2angle\fR" 4
+proper to angular size conversion in different cosmologies
+.Ip "\fIdistance\fR " 4
+angular distance between two points on the sky
+.Ip "\fIrad2ad\fR" 4
+radians \-> h:m:s d:m:s
+.SH "FITS DATA MANIPULATIONS"
+.Ip "\fIaddcomm\fR" 4
+add comment records to \s-1FITS\s0 header
+.Ip "\fIaddhist\fR" 4
+adds history records to \s-1FITS\s0 header
+.Ip "\fIchimtype\fR" 4
+change data type (e.g. real->integer) in an image. Data may be optionally
+rescaled.
+.Ip "\fIcopyheader\fR" 4
+copy header keywords from one \s-1FITS\s0 file to another (see also \s-1FTOOL\s0
+\fIcphead\fR).
+.Ip "\fIcopywcs\fR" 4
+copy just the World Coordinate System keywords from the header of one \s-1FITS\s0
+image to others.
+.Ip "\fIfcolappend\fR" 4
+append a constant column to a \s-1FITS\s0 table
+.Ip "\fIfitsparsename\fR" 4
+Prints components of the extended \s-1FITS\s0 file name.
+.Ip "\fIfitspha\fR" 4
+convert \s-1ASCII\s0 files to \s-1FITS\s0 \s-1PHA\s0 (see also \s-1FTOOL\s0  \fIascii2pha\fR).
+.Ip "\fIgtiexp\fR" 4
+prints out the total exposure of the \s-1GTI\s0 file
+.Ip "\fIgtifits\fR" 4
+converts \s-1ASCII\s0 \s-1GTI\s0 files to \s-1FITS\s0 format
+.Ip "\fIiffits\fR" 4
+prints 1 if its argument is a fits file, 0 otherwise
+.Ip "\fIlistfits\fR" 4
+print out \s-1FITS\s0 header keywords. See also  \fIlisthead\fR supplied with \s-1FITSIO\s0.
+.Ip "\fImodifyheader\fR" 4
+modifies \s-1FITS\s0 header. This tools is derived from \s-1FTOOL\s0 fmodhead but
+incorporates two important improvements
+.Ip "\fIprintkey\fR" 4
+prints a \s-1FITS\s0 keyword value
+.Ip "\fIrfits\fR" 4
+convert fits image to unformatted fortran file
+.Ip "\fIwfits\fR" 4
+convert unformatted fortran file to fits
+.SH "IMAGES"
+.Ip "\fIadapt\fR" 4
+smooth an image with circular top hat filter of adaptive size
+.Ip "\fIaddimages\fR" 4
+coadd images in the sky coordinates
+.Ip "\fIatrous\fR" 4
+convolve an image with `a trous wavelet
+.Ip "\fIcontmap\fR" 4
+draw a contour map
+.Ip "\fIcreateimg\fR" 4
+make a constant value image
+.Ip "\fIdsscoord\fR" 4
+\s-1DSS\s0 pixels to sky coordinates
+.Ip "\fIdssdetect\fR" 4
+detect sources in \s-1DSS\s0 plates
+.Ip "\fIdssoverlay\fR" 4
+overlay contours on \s-1DSS\s0 (or any other) image
+.Ip "\fIfindpeak\fR   find local maxima in an image" 4
+.Ip "\fIgaussimg\fR" 4
+simulate a Gaussian image
+.Ip "\fIimarith\fR" 4
+simple arith. on two images. See also \fIimcalc\fR and \fIimcarith\fR
+.Ip "\fIimblock\fR" 4
+block and reblock the image
+.Ip "\fIimcalc\fR" 4
+arbitrary image calculus; for simple arithmetic, see \fIimarith\fR and
+\fIimcarith\fR
+.Ip "\fIimcarith\fR" 4
+constant value arithmetics with an image. Also sqrt, min, max, abs
+.Ip "\fIimcopy\fR" 4
+provided for image manupulation using \s-1FITSIO\s0's extended name syntax
+.Ip "\fIimdiff\fR" 4
+reports pixel-by-pixel difference of two images
+.Ip "\fIimexam\fR" 4
+report many image statistics
+.Ip "\fIimg2list\fR" 4
+convert integer image to pixel list
+.Ip "\fIimproj\fR" 4
+projection of a 2-d image along a direction
+.Ip "\fIimsmo\fR" 4
+smooth image with a Gaussian filter
+.Ip "\fIisland\fR" 4
+find connected domains in an image
+.Ip "\fIkingimg\fR" 4
+simulate a beta-model image
+.Ip "\fIlist2img\fR" 4
+convert \s-1ASCII\s0 `photon list\*(R' to an image
+.Ip "\fImakeimg\fR " 4
+make an image from \s-1FITS\s0 events files. Probably made obsolete by \fIfitscopy\fR
+.Ip "\fImexhat\fR" 4
+convolve an image with the Mexican Hat wavelet
+.Ip "\fImkcond\fR" 4
+logical operation on an image
+.Ip "\fImkedge\fR" 4
+set image to a value outside the given radius
+.Ip "\fImkprof\fR" 4
+calculate radial surface brightness profile
+.Ip "\fImkreg\fR" 4
+make a mask image from the \s-1ASCII\s0 region descriptor
+.Ip "\fIpix2sky\fR" 4
+pixels \-> sky coordinates
+.Ip "\fIpoisson\fR" 4
+simulate Poisson scatter
+.Ip "\fIprof2img\fR" 4
+convert radial surface brightness profile to a 2d image
+.Ip "\fIsaoimage2reg\fR" 4
+translate SAOimage region file to the zhtools region descriptor; this tool
+is almost obsolete because zhtools now understand SAOimage reg.files (see
+\fIregions\fR)
+.Ip "\fIsavecont\fR" 4
+save contours for further use by \fIdssoverlay\fR
+.Ip "\fIscatter\fR" 4
+add Gaussian scatter to an image
+.Ip "\fIselect\fR" 4
+apply temp, energy and spatial selection to a \s-1FITS\s0 events file; probably
+made obsolete by \fIfitscopy\fR
+.Ip "\fIsetval\fR" 4
+set image value in a region
+.Ip "\fIsky2pix\fR" 4
+sky coordinates \-> pixels
+.Ip "\fIsky2dss\fR " 4
+sky coordinates \-> \s-1DSS\s0 pixels
+.Ip "\fIstackimages\fR" 4
+adds several images without shift
+.Ip "\fItransreg\fR" 4
+translate region from one \s-1WCS\s0 to another
+.Ip "\fIwvdecomp\fR" 4
+wavelet decomposition
+.SH "ROSAT\-SPECIFIC"
+.Ip "\fIextrrosatspec\fR" 4
+extract spectrum in 34 \s-1ROSAT\s0 channels
+.Ip "\fImakerosatpsf\fR" 4
+make \s-1ROSAT\s0 \s-1PSPC\s0 \s-1PSF\s0 image for given source positions
+.Ip "\fImakesnowdenspec\fR" 4
+make spectrum from Snowden's images
+.Ip "\fIrosatpsffwhm\fR" 4
+return \s-1FWHM\s0 of the \s-1PSPC\s0 \s-1PSF\s0
+.SH "MISC"
+.Ip "\fIgetpar\fR" 4
+a tool to read command line arguments in shell scripts
+.SH "AUTHOR"
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+.rn }` ''
+.IX Title "ZHTOOLS 1"
+.IX Name "I<ZHTOOLS> - programs for X-ray astronomy"
+
+.IX Header "NAME"
+
+.IX Header "DESCRIPTION"
+
+.IX Header "GENERAL ASTRONOMY TASKS"
+
+.IX Item "\fIad2rad\fR"
+
+.IX Item "\fIangle2size\fR"
+
+.IX Item "\fIsize2angle\fR"
+
+.IX Item "\fIdistance\fR "
+
+.IX Item "\fIrad2ad\fR"
+
+.IX Header "FITS DATA MANIPULATIONS"
+
+.IX Item "\fIaddcomm\fR"
+
+.IX Item "\fIaddhist\fR"
+
+.IX Item "\fIchimtype\fR"
+
+.IX Item "\fIcopyheader\fR"
+
+.IX Item "\fIcopywcs\fR"
+
+.IX Item "\fIfcolappend\fR"
+
+.IX Item "\fIfitsparsename\fR"
+
+.IX Item "\fIfitspha\fR"
+
+.IX Item "\fIgtiexp\fR"
+
+.IX Item "\fIgtifits\fR"
+
+.IX Item "\fIiffits\fR"
+
+.IX Item "\fIlistfits\fR"
+
+.IX Item "\fImodifyheader\fR"
+
+.IX Item "\fIprintkey\fR"
+
+.IX Item "\fIrfits\fR"
+
+.IX Item "\fIwfits\fR"
+
+.IX Header "IMAGES"
+
+.IX Item "\fIadapt\fR"
+
+.IX Item "\fIaddimages\fR"
+
+.IX Item "\fIatrous\fR"
+
+.IX Item "\fIcontmap\fR"
+
+.IX Item "\fIcreateimg\fR"
+
+.IX Item "\fIdsscoord\fR"
+
+.IX Item "\fIdssdetect\fR"
+
+.IX Item "\fIdssoverlay\fR"
+
+.IX Item "\fIfindpeak\fR   find local maxima in an image"
+
+.IX Item "\fIgaussimg\fR"
+
+.IX Item "\fIimarith\fR"
+
+.IX Item "\fIimblock\fR"
+
+.IX Item "\fIimcalc\fR"
+
+.IX Item "\fIimcarith\fR"
+
+.IX Item "\fIimcopy\fR"
+
+.IX Item "\fIimdiff\fR"
+
+.IX Item "\fIimexam\fR"
+
+.IX Item "\fIimg2list\fR"
+
+.IX Item "\fIimproj\fR"
+
+.IX Item "\fIimsmo\fR"
+
+.IX Item "\fIisland\fR"
+
+.IX Item "\fIkingimg\fR"
+
+.IX Item "\fIlist2img\fR"
+
+.IX Item "\fImakeimg\fR "
+
+.IX Item "\fImexhat\fR"
+
+.IX Item "\fImkcond\fR"
+
+.IX Item "\fImkedge\fR"
+
+.IX Item "\fImkprof\fR"
+
+.IX Item "\fImkreg\fR"
+
+.IX Item "\fIpix2sky\fR"
+
+.IX Item "\fIpoisson\fR"
+
+.IX Item "\fIprof2img\fR"
+
+.IX Item "\fIsaoimage2reg\fR"
+
+.IX Item "\fIsavecont\fR"
+
+.IX Item "\fIscatter\fR"
+
+.IX Item "\fIselect\fR"
+
+.IX Item "\fIsetval\fR"
+
+.IX Item "\fIsky2pix\fR"
+
+.IX Item "\fIsky2dss\fR "
+
+.IX Item "\fIstackimages\fR"
+
+.IX Item "\fItransreg\fR"
+
+.IX Item "\fIwvdecomp\fR"
+
+.IX Header "ROSAT\-SPECIFIC"
+
+.IX Item "\fIextrrosatspec\fR"
+
+.IX Item "\fImakerosatpsf\fR"
+
+.IX Item "\fImakesnowdenspec\fR"
+
+.IX Item "\fIrosatpsffwhm\fR"
+
+.IX Header "MISC"
+
+.IX Item "\fIgetpar\fR"
+
+.IX Header "AUTHOR"
+

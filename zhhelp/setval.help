@@ -1,0 +1,13 @@
+   ---
+   
+   
+   
+   SETVAL  - set value in an image region
+   -----
+   
+   
+   Usage:
+   ------
+   setval img=image value=value reg=region
+
+   ---

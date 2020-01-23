@@ -1,0 +1,41 @@
+=head1 NAME
+
+B<rad2ad> - convert sky coordinates in radians to h:m:s d:m:s.
+
+=head1 SYNOPSIS
+
+B<rad2ad> [list=I<file>]
+
+=head1 DESCRIPTION
+
+Coordinates are read line-by line from either I<file> or standard
+input. Resulting coordinates are printed to standard output.
+
+The output coordinates are space separated.
+
+=head1 EXAMPLES
+
+* To convert degrees to h:m:s d:m:s, use
+
+   perl -nae \
+  '{$d2r=atan2(0,-1)/180; print $F[0]*$d2r," ",$F[1]*$d2r,"\n"}' | rad2ad
+
+* To print output values colon-separated,
+
+   rad2ad | awk '{print $1":"$2":"$3  $4":"$5":"$6}'
+ or
+   rad2ad | perl -pe '{s/(\S)\s(\S)/$1:$2/g}'
+
+=head1 BUGS
+
+The output coordinates are always printed at precision of 0.1 sec in RA
+and 1 arcsec in Dec.
+
+=head1 SEE ALSO
+
+B<ad2rad>, B<pix2sky>, B<sky2pix>, B<dsscoord>, B<sky2dss> from ZHTOOLS, and 
+B<precess> from Chandra proposal tools.
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>

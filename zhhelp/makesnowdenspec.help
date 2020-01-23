@@ -1,0 +1,65 @@
+   ---
+   
+   
+   
+   MAKESSNOWDENPEC  - extract spectrum in a region using output from 
+               Steve Snowden's programs
+   -----
+   
+   
+   Usage:
+   ------
+   makesnowdenspec @parfile
+
+	   parfile contains the following:
+
+
+	bgtable=bgtalefile    file whith the background information in a
+			      form:    	band#   BGvalue
+	
+	reg=reg               region image
+
+	out=keyword	      output keyword
+	reg#=Nreg	      regions. default "1"
+
+			      out and reg# values should match. Examples:
+				out=spec
+				reg#=1
+				or
+				out=spec4,spec3
+				reg#=4,3
+
+	exclreg=excl.reg      image containing regions to exclude from
+                              spectrum extraction
+
+	exclpoint=excl.reg    same function as exclreg
+
+	onaxis=yes/no         Use on-axis or off-axis response. No is default.
+                              If onaxis=yes, fluxes are extracted from
+			      flat-fielded images; if "no", fluxes
+                              de-flatfielded and appropriate ARF files are
+                              generated.
+
+	gain=early/late       Set PSPC gain; gain changed on October 14,1991
+
+	detector=PSPCB/PSPCC  Set PSPC; PSPCB was used for most of the
+			      pointed observations.
+
+	bgerr=XXX             set relative systematic error to the
+                              background; default 0; you can set either the
+                              same error to all channels (e.g. bgerr=0.1)
+			      or for each channel individually, e.g. 
+			      bgerr=0.0,0.1,0.2,0.2,0.15,0.2,0.5
+
+	bgnorm=XXX            background rescaling; default 1.0
+
+
+       	[bandmin=bandmin]     default 2
+       	[bandmax=bandmax]     default 7
+
+	[datadir=datadir]     directory where images reside, default ./
+   ---
+
+
+
+

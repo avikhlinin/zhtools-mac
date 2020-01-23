@@ -1,0 +1,28 @@
+ 
+ 
+ CHIMTYPE  - change data type
+ 
+ Usage:
+ chimtype image outtype [rescale=no [shift=yes]] [out=outimage]
+ 
+
+           outtype has the same meaning as in FITSIO:
+                   "b,B" - integer*1
+                   "i,I" - integer*2, 
+                   "j,J" - integer*4
+                   "e,E" - real*4
+                   "d,D" - real*8
+
+	   by default, when float data is converted to int types,
+           maximum information is preserved by setting BZERO to min of the
+           input image and BSCALE to (max-min)/datarange. This is turned off 
+           by rescale=no option; rescale=no followed by shift=yes keeps 
+           bscale=1, but sets bzero to min of the input image.
+
+	   if output image is not provided, the input one will be
+           overwritten. out=- results in writing the result into stdout
+
+The task will internally rescale the data so that the type range fits the
+img_min - img_max range. This is desired when conversion is from a real to
+an integer data type. If conversion is between integer types, set rescale=no
+

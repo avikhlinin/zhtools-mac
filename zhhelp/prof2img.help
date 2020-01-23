@@ -1,0 +1,19 @@
+   ---
+   
+   
+   
+   PROF2IMG  - convert profile back to image
+   --------
+   
+    This task reads a profile file made by mkprof and creates a 2-d image 
+    from this profile
+
+   Usage:
+   ------
+   prof2img  prof=input_profile_file out=output_image
+		refimg=reference_image   # refimg is used to set the output
+			or               # image size. One can set them 
+		nx=nx ny=ny              # using nx= and ny= switches
+		[x0=xcenter y0=ycenter]
+
+   ---

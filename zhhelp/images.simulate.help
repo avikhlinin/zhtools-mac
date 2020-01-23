@@ -1,0 +1,6 @@
+
+
+createimge	- make new FITS image equal to a constant
+gaussimg
+kingimg
+poisson		- Poisson scatter of the existing image

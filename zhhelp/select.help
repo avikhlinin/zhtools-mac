@@ -1,0 +1,6 @@
+  SELECT	apply a time, energy, and spatial filter to the event list
+
+  Usage:
+	select input output [pimin=pimin] [pimax=pimax] [tmin=tmin] 
+			[tmax=tmax] [xmin=xmin] [xmax=xmax] [ymin=ymin]
+			[ymax=ymax] [copyall=yes/no]

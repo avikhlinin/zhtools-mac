@@ -1,0 +1,12 @@
+
+   SKY2DSS		- convert sky coordinates to pixels in DSS plates
+
+   Usage:
+	sky2dss img=dss.image [-deg]
+
+
+	This task reads sky coordinates in radian and outputs pixels.
+	To input sky coordinates in degrees, use -deg switch.
+	To input coordinates in h:m:s d:m:s format, use
+	ad2rad | sky2dss ...  command
+

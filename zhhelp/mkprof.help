@@ -1,0 +1,45 @@
+   ---
+   
+   
+   
+   MKPROF  - create radial profile
+   --------
+   
+   Usage:
+   ------
+   mkprof  img=input_image
+	   [errimg=error_image]    # image which contains standard
+				   # deviations of the input image. 
+				   # To be used for error calculations
+	
+	   [mask=mask_file]	   # only regions with mask=1 will be used
+				   # for profile extraction   
+
+	   [x0=xcenter y0=ycenter] # set profile center; default: image center
+	
+	   [mode=lin or mode=log]  # radial bins will have equal linear or
+				   # equal log width; mode=lin is default
+	
+	   [step=step]		   # set profile step. if mode=lin, this is
+				   # the bins width. If mode=log, step
+				   # should be > 1, and step=r(i+1)/r(i)
+
+	   [bounds=profile_bound_file]   use profile boundaries from a file
+					this file should contain inner and
+					outer values for each ring such as
+					0.12 5.60
+					5.60 7.20
+
+	   [rmax=rmax]	 	   # max radius for profile extraction
+
+           [errormin=errmin]       # set the minimum estimated error for 1
+                      # pixel; this parameter can be useful when statistics
+                      # is Poisson with small number of photons per region; 
+                      # in this case one could get zero counts and the 
+                      # estimated error would be zero. 
+
+	By default errors are estimated from the RMS scatter within the ring
+	If errimg is set, errors are estimated from there
+
+   ---
+

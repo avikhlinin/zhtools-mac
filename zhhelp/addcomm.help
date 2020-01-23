@@ -1,0 +1,9 @@
+
+  ADDCOMM	adds comment lines to the primary fits header
+
+  Usage:	addcomm fits.file
+  ~~~~~~
+
+You will be prompted to type in the comment text. It will appear in the
+primary header of the fits.file
+ 

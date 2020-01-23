@@ -1,0 +1,10 @@
+
+ DSSCOORD converts pixel coordinates in the Digitized Sky Survey images to
+	sky coordinates
+
+ Usage:
+	dsscoord dss.image [coord.file]
+
+ it will read pixels from standard input or coord.file and output sky
+ coordinates to standard input.
+

@@ -1,0 +1,6 @@
+
+Usage:
+	pix2sky img=fits.image  [out=rad,deg,hmsdms]
+	 -or-
+	pix2sky crval1=cv1 ...   [out=rad,deg,hmsdms]
+

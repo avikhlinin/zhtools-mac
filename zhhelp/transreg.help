@@ -1,0 +1,10 @@
+
+
+TRANSREG  - translate regions from one WCS system to anouther
+
+   Usage:
+	  transreg from=from_wcs_file to=to_wcs_file reg=regfile \
+		[nxout=nx nyout=ny out=output.file]
+		[toxcol=name toycol=name fromxcol=name fromycol=name]
+		[shortformat=yes]
+ 

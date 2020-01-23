@@ -1,0 +1,28 @@
+=head1 NAME
+
+B<img2list> - convert integer image to pixel list
+
+=head1 SYNOPSIS
+
+B<img2list> I<fits.image>
+
+=head1 DESCRIPTION	
+
+B<img2list> prints coordinates of non-zero image pixels. If the pixel value
+is I<n>, coordinates are printed I<n> times.
+
+=head1 BUGS
+
+* There is currently no way to change the default condition (!=0) and deal
+with non-integer images 
+
+=head1 SEE ALSO
+
+B<list2img>
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+

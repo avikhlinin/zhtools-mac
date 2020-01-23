@@ -1,0 +1,12 @@
+  
+  
+  MKCOND	a logical operation on an image
+  
+  Usage:
+	 mkcond outimg image condition value
+  	
+	condition:   > < <= >= == != or their fortran analogues
+   
+        the output image is 1 where input image satisfy the condition; 0
+	everywhere else
+

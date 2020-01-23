@@ -1,0 +1,40 @@
+=head1 NAME
+
+B<sky2dss> - convert sky to pixel coordinates in a Digitized Sky Survey plate.
+
+=head1 SYNOPSIS
+
+B<sky2dss> img=I<dss.fits> [-deg]
+
+=head1 DESCRIPTION
+
+Sky coordinates are read from standard input and the pixel coordinates are
+printed to standard output. 
+
+=over 4
+
+=item img=I<dss.fits>
+
+Name of the image with the plate solution keywords in the header
+
+=item -deg
+
+Input coordinates are in degrees. By default, they must be in radians
+
+=back
+
+=head1 SEE ALSO
+
+B<ad2rad>, B<sky2pix>, B<dsscoord>
+
+=head1 EXAMPLES
+
+To convert coordinates in h:m:s d:m:s format, use
+
+ ad2rad | sky2dss ....
+
+
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>

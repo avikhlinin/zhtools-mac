@@ -1,0 +1,10 @@
+
+ GAUSSIMG  simulates a Gaussian image
+
+ gaussimg [img=outimg] [sigma=sigma] [norm=norm] [nx=nx] [ny=ny] 
+							[i0=i0] [j0=j0] 
+
+ norm=		sets the normalization of the Gaussin. default is norm=1
+ nx=nx,ny=ny	set the output image size.
+ i0=i0,j0=j0    set the centroid coordinates. default is i0=nx/2, j0=ny/2
+

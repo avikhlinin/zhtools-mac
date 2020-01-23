@@ -1,0 +1,36 @@
+---
+
+
+
+MEXHAT   - convolve image with the Mexican Hat
+
+image dimensions MUST be 2**k!
+-----
+
+
+Usage:
+------
+mexhat scale image [out=outfile] [show=yes] [bkgd=bkgdfile] [exp=expfile] \
+		   [edge=R] [snr=yes]
+
+
+	 scale          the Mexican Hat scale
+
+	 image          input image file
+
+	 out=outfile    set the output file name explicitly; if this is not
+                        specified, the output file will be image.scale
+
+	 show=yes       show output image; if show=yes and outfile is not
+                        specified explicitly, no output will be written 
+			(just show)
+
+	 bkgd=bkgdfile  subtract the background image from bkgdfile
+
+	 exp=expfile    correct for exposure map from expfile
+
+	 edge=R         set image to zero outside the radius of R pixels
+
+         snr=yes        output image is in units of S/N
+
+---------------

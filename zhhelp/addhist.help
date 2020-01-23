@@ -1,0 +1,9 @@
+
+  ADDGHIST	adds history records to the primary fits header
+
+  Usage:	addhist fits.file
+  ~~~~~~
+
+You will be prompted to type in the history text. It will appear in the
+primary header of the fits.file
+

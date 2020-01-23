@@ -1,0 +1,12 @@
+
+  DISTANCE   prints the angular distance between too points in the sky
+
+  Usage:
+	distance [format=hmsdms,deg,rad]
+
+You will be prompted to input coordinates.
+
+	format=hmsdms	- input coordinates are in hours,min,sec deg,min,sec
+			  this is the default
+	format=deg/rad	- input coordinates are in deg/rad
+

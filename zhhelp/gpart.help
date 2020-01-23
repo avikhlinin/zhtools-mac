@@ -1,0 +1,17 @@
+  ---
+  
+ GPARRT IS OBSOLETE. USE IMCOPY INSTEAD  
+  
+  GPART - extract a part of an image
+  -----
+  
+  
+  Usage:
+  ------
+  gpart img=infile out=outfile [-show] [-g xmin xmax ymin ymax]
+  	
+  	-show  --  The image will be displayed in the SAOimage window.
+	
+	if -g is not set, you will be prompted for the output image corner
+		coordinates
+

@@ -1,0 +1,87 @@
+=head1 NAME
+
+B<imexam> - measure image statistics
+
+=head1 SYNOPSIS
+
+B<imexam> I<fits.image> I<mode1[,mode2,...]> I<[reg=reg]> I<[exclreg=reg]>
+I<[printbyreg=yes]> I<[clean=yes]> I<[threshold=t]>
+
+=head1 NEWS (for version 2.1)
+
+The user can specify the list of quantaties to extract (not just one
+statistics).
+
+=head1 DESCRIPTION	
+
+B<imexam> extracts some image statistics either in the entire image or in a
+region. Optionally, the image can be cleaned, on the by-region basis, of
+strong deviations (sources).
+
+=head1 IMAGE STATISTICS
+
+The following image statistics can be extracted:
+
+=over 4
+
+=item I<sum>
+
+=item I<mean>
+
+=item I<errmean>  - standard dev. of the mean
+
+=item I<median>
+
+=item I<dispersion>
+
+=item I<stddev>
+
+=item I<absdev>           - average abs(x-<x>)
+
+=item I<square>           - average x**2
+
+=item I<sumsquare>        - sum x**2
+
+=item I<max>
+
+=item I<min>
+
+=item I<value  i j>       - image value in pixel i,j
+
+=item I<meancoords>       average x,y over the reg
+
+=back
+
+=head1 OPTIONS
+
+=over 4
+
+=item I<[reg=reg]> - extract the statistics in the region, which can be
+
+  1) SAOimage region file
+  2) integer FITS image with values > 0 in the region of interest
+  3) ZHTOOLS region file (zhhelp regions)
+
+=item I<[excreg=reg]> - similar to I<reg=>, but this region will be excluded.
+
+=item I<printbyreg=yes> - print the values in regions where reg==1, 
+reg==2, reg==3 and so on. If printbyreg=no, which is
+default, the statitics is calculated in the region reg!=0
+
+=item I<[clean=yes]> - do some cleaning before calculations. Pixels deviating
+by more than I<t> sigma (default 3, can be set by the I<threshold>
+parameter) from the mean in the given region, will be discarded.
+
+=item I<[threshold=t]> - set threshold for cleaning.
+
+=back
+
+=head1 SEE ALSO
+
+B<regions>
+
+=head1 AUTHOR
+
+Alexey Vikhlinin <alexey@head-cfa.harvard.edu>
+
+
