@@ -1,0 +1,132 @@
+#
+# Analysis command descriptions:
+#   menu label/description
+#   file templates for this command (* for all files)
+#   "menu" (add to menu) |"bind" (bind to key)
+#   analysis command line
+#
+
+hmenu ZHTools
+
+
+#
+# ################################### Imexam #################################
+#
+param      imexam
+prbyreg    checkbox "Display Results for Each Region Separately?"  0
+sum        checkbox "sum"                  1
+mean       checkbox "mean: <v>"            0
+errmean    checkbox "uncertainty of <v>"      0
+stddev     checkbox "rms, stddev: sqrt <(v-<v>)**2>"        0
+dispersion checkbox "dispersion: <(v-<v>)**2>"    0
+absdev     checkbox "absdev: <abs(v-<v>)>"    0
+square     checkbox "mean square: <v**2>"     0
+ssquare    checkbox "sum(v**2)"   0
+min        checkbox "minimum value"         0
+max        checkbox "maximum value"         0
+mcoords    checkbox "mean coordinates"      0
+median     checkbox "median value"          0
+end
+
+imexam # (options: image info to display)
+*
+menu
+$param(imexam); $data | zhds9.pl "$xpa_method" "$filename" "none" 0 imexam $prbyreg $sum $mean $errmean $dispersion $stddev $absdev $square $ssquare $min $max $mcoords $median |& cat | $text
+
+#
+# ########################## Top-hat Filter Adaptive Smooth ##################
+#
+param adapt
+ncnt  entry "minimum counts within filter" 	5
+rmax  entry "maximum filter radius (pix)" 	10
+disp  checkbox "send output to ds9"		1
+save  entry "output file name"	"none"
+end
+
+adapt      (simple adaptive smooth)
+
+*
+menu
+$param(adapt); $data | zhds9.pl "$xpa_method" "$filename" "$save" "$disp" adapt $ncnt $rmax |& cat | $text
+
+#
+# ############################ Atrous Wavelet Convolution #####################
+#
+param  atrous
+scale  entry "kernel scale"    "2"
+smooth checkbox "smooth mode"  0
+bkgd   entry "background correction image"   "none"
+exp    entry "exposure correction image" "none"
+disp  checkbox "Display results in ds9?"  1
+save  entry "output file name"			 "none"
+end
+
+atrous     ('a trous' wavelet)
+*
+menu
+$param(atrous); $data | zhds9.pl "$xpa_method" "$filename" "$save" "$disp" atrous $scale $bkgd $exp $smooth |& cat | $text
+
+
+#
+# ################################# Image Smoothing ##########################
+#
+param imsmo
+sigma entry "Sigma of smoothing gaussian (pixels)" 		2.0
+exact checkbox "Compute exact (FFT) convolution (size must be 2**n)?"	0
+save  entry "Filename to save FITS results"			"none" "('none' for ds9 display only)"
+disp  checkbox "Display FITS results?"				1
+end
+
+imsmo
+*
+menu
+$param(imsmo); $data | zhds9.pl "$xpa_method" "$filename" "$save" "$disp" imsmo $sigma $exact |& cat | $text
+
+#
+# ######################## Convolve Image with the Mexican Hat ###############
+#
+# maxhat
+param  mexhat
+scale  entry "Comma-separated list of kernel widths (pixels)"    "1,2"  "(e.g., '1,2')"
+bkgd   entry "Background image to subtract before convolution"   "none"
+exp    entry "Exposure map for flat-fielding before convolution" "none"
+snr    checkbox "Output S/N Image?"				 1
+disp  checkbox "Display FITS results?"				 1
+save  entry "Filename to save FITS results"			 "none"
+end
+
+mexhat    (Mexicat Hat wavelet)
+*
+menu
+$param(mexhat); $data | zhds9.pl "$xpa_method" "$filename" "$save" "$disp" mexhat $scale $bkgd $exp $snr |& cat | $text
+
+
+#
+# ################################ Refine Position (Centroid) ################
+#
+# refinepos
+param   refinepos
+niter   entry    "Number of iterations"				3
+rsrc    entry    "Source radius"				5	"(if not using circular regions)"
+save    entry    "Filename to save refined regions"		"none" "('none' for ds9 text display only)"
+disp    checkbox "Display refined region(s)?"			1
+end
+
+refinepos (refine source positions)
+*
+menu
+$param(refinepos); $data | zhds9.pl "$xpa_method" "$filename" "$save" "$disp" refinepos "$regions(image)" $niter $rsrc |& cat | $text
+
+#
+# ############################## ZHTOOLS Help ################################
+#
+param zhhelp
+zhelp menu "Choose a zhtools topic"	"adapt|atrous|imexam|imsmo|mexhat|wvdecomp|regions"
+end
+
+ZHTOOLS Help (options: help_topic)
+*
+menu
+$param(zhhelp); zhds9.pl "$xpa_method" "$filename" "none" 0 zhhelp "$zhelp" |& cat | $text
+
+end
