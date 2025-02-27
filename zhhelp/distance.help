@@ -2,7 +2,8 @@
   DISTANCE   prints the angular distance between too points in the sky
 
   Usage:
-	distance [format=hmsdms,deg,rad]
+	distance [format=hmsdms,deg,rad] [oformat=arcsec,arcmin,deg,rad] \\
+                 [fformat=FORTRAN_FORMAT]
 
 You will be prompted to input coordinates.
 
@@ -10,3 +11,9 @@ You will be prompted to input coordinates.
 			  this is the default
 	format=deg/rad	- input coordinates are in deg/rad
 
+        oformat specifies in which units the distances should be printed; by
+                default, it is printed in rad, deg, and arcmin in one line
+
+        if oformat is set, you can also specify a fortran format string
+        with fformat= flag. E.g. oformat=deg fformat=f8.4 will print the
+        result in degrees, with 4 significant digits
